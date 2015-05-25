@@ -1,0 +1,28 @@
+{
+  "name": "stats.chrisvogt.me",
+  "version": "0.7.0",
+  "homepage": "http://stats.chrisvogt.me",
+  "description": "Report of a Phoenix-based web developers coding habits, as tracked by WakaTime.",
+  "main": "webroot/index.php",
+  "keywords": [
+    "stats",
+    "developer",
+    "report"
+  ],
+  "authors": [
+    "Chris Vogt <mail@chrisvogt.me>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "webroot/components/",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jasny-bootstrap": "~3.1.3"
+  }
+}
