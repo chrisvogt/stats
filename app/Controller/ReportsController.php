@@ -1,6 +1,6 @@
 <?php
 /**
- * Reports Controller
+ * Reports Controller for Statsboard.
  *
  * Generates the developer stats reports using the WakaTime API.
  *
@@ -35,7 +35,7 @@ class ReportsController extends AppController {
 	 *
 	 * @var array
 	 */
-	public $components = ['WakaTime.WakaTime'];
+	public $components = ['WakaTime.WakaTime', 'WakaChart'];
 
 	/**
 	 * Default action for the app
@@ -43,7 +43,24 @@ class ReportsController extends AppController {
 	 * @return void
 	 */
 	public function dashboard() {
-		$this->set('data', 'data');
-		$this->set('user', $this->WakaTime->currentUser());
+		$this->set('userData', $this->_cacheHandler('currentUser'));
+		$chart7Days = $this->_cacheHandler('dailySummary', array(date('m/d/Y', strtotime('-7 days')), date('m/d/Y')));
+		$this->set('chart', $this->WakaChart->totalHoursChart($chart7Days['data']));
+		$this->set('totalHours', $this->_cacheHandler('getHoursLoggedForLast7Days'));
+	}
+
+	public function _cacheHandler($request, $args = null) {
+		if (Configure::read($request)) {
+			$response = Cache::read($request);
+		} else {
+			$a = func_get_args($args);
+			if (isset($a[1])) {
+				$response = call_user_func_array(array($this->WakaTime, $request), $a[1]);
+			} else {
+				$response = $this->WakaTime->$request();
+			}
+			Cache::write($request, $response);
+		}
+		return $response;
 	}
 }
