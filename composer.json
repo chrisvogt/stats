@@ -12,7 +12,8 @@
     "friendsofcake/crud" : "3.*",
     "josegonzalez/dotenv": "0.3.*",
     "ad7six/dsn": "0.3.*",
-    "chrisvogt/cakephp-wakatime": "~0.9"
+    "chrisvogt/cakephp-wakatime": "~0.9",
+    "ghunti/highcharts-php": "~3.0"
   },
   "require-dev": {
     "cakephp/debug_kit" : "2.2.*"

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "b539b808b95f513c91794786c6e95bbe",
+    "hash": "70d5499fba2fce879f68d04becf156cd",
     "packages": [
         {
             "name": "ad7six/dsn",
@@ -294,6 +294,52 @@
                 "update"
             ],
             "time": "2015-04-18 19:08:17"
+        },
+        {
+            "name": "ghunti/highcharts-php",
+            "version": "v3.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ghunti/HighchartsPHP.git",
+                "reference": "cbaed3baefc7b67d7b6a30159ae1f975089c8474"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ghunti/HighchartsPHP/zipball/cbaed3baefc7b67d7b6a30159ae1f975089c8474",
+                "reference": "cbaed3baefc7b67d7b6a30159ae1f975089c8474",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Ghunti\\HighchartsPHP\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Gonçalo Queirós",
+                    "email": "mail@goncaloqueiros.net",
+                    "homepage": "http://goncaloqueiros.net",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A php wrapper for highcharts and highstock javascript libraries",
+            "homepage": "http://goncaloqueiros.net/highcharts.php",
+            "keywords": [
+                "charts",
+                "highcharts",
+                "highstock",
+                "javascript",
+                "php"
+            ],
+            "time": "2015-04-22 22:16:35"
         },
         {
             "name": "guzzlehttp/guzzle",
