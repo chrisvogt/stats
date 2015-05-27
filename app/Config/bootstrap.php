@@ -23,6 +23,7 @@
  * @since         CakePHP(tm) v 0.10.8.2117
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
+Configure::write('Site.title', 'Stats for CHRISVOGT.me');
 
 App::build(
 	[
