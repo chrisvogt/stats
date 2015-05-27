@@ -54,4 +54,14 @@ class AppController extends Controller {
 		'Paginator' => ['settings' => ['paramType' => 'querystring', 'limit' => 30]]
 	];
 
+/**
+ * beforeFilter() overrides
+ *
+ * @return void
+ */
+	public function beforeFilter() {
+		Parent::beforeFilter();
+		$this->layout = 'offcanvas';
+	}
+
 }
