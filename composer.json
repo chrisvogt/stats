@@ -6,14 +6,15 @@
   "homepage" : "http://stats.chrisvogt.me",
   "license" : "MIT",
   "require" : {
-    "php" : ">=5.4",
+    "php" : "~5.5.0",
     "composer/installers" : "~1.0",
     "cakephp/cakephp" : "2.5.*",
     "friendsofcake/crud" : "3.*",
     "josegonzalez/dotenv": "0.3.*",
     "ad7six/dsn": "0.3.*",
     "chrisvogt/cakephp-wakatime": "~0.9",
-    "ghunti/highcharts-php": "~3.0"
+    "ghunti/highcharts-php": "~3.0",
+    "ext-mbstring": "*"
   },
   "require-dev": {
     "cakephp/debug_kit" : "2.2.*"
