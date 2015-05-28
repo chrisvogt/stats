@@ -1,0 +1,21 @@
+.page-header p.lead {
+	color: #cecece;
+}
+.social .container {
+	margin-top: 6px;
+}
+#footer {
+	margin-top: 8px;
+}
+.label-primary a {
+	color: #cecece;
+	text-decoration: none;
+}
+.label-primary a:hover {
+	color: #fefefe;
+}
+@media (max-width: 979px) {
+	#ghRibbon {
+		display: none;
+	}
+}

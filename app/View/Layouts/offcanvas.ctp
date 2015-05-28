@@ -37,12 +37,29 @@
 	<title>
 		<?php echo Configure::read('Site.title'); ?>
 	</title>
+
+	<?php
+		echo $this->Html->meta(['name' => 'description', 'content' => 'Chris Vogt\'s Open Source Stats']);
+		echo $this->Html->meta(['name' => 'author', 'content' => 'Chris Vogt']);
+		echo $this->Html->meta(['name' => 'robots', 'content' => 'index, follow']);
+		echo $this->Html->meta(['property' => 'og:image', 'content' => $this->Html->Url('/img/screenshot.png', true)]);
+		echo $this->Html->meta(['property' => 'og:description', 'content' => 'A public report of my realtime open source stats and contributions. ']);
+		echo $this->Html->meta(['property' => 'og:author', 'content' => 'Chris Vogt']);
+		echo $this->Html->meta(['name' => 'twitter:card', 'content' => 'summary_large_image']);
+		echo $this->Html->meta(['name' => 'twitter:site', 'content' => 'http://stats.chrisvogt.me']);
+		echo $this->Html->meta(['name' => 'twitter:creator', 'content' => '@C1V0']);
+		echo $this->Html->meta(['name' => 'twitter:title', 'content' => 'Chris Vogt\'s Open Source Stats']);
+		echo $this->Html->meta(['name' => 'twitter:description', 'content' => 'A public report of my realtime open source stats and contributions. ']);
+		echo $this->Html->meta(['name' => 'twitter:image', 'content' => $this->Html->Url('/img/screenshot.png', true)]);
+	?>
+
 	<?php
 		echo $this->Html->meta('icon');
 
 		echo $this->Html->css('http://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css');
 		echo $this->Html->css('../components/jasny-bootstrap/dist/css/jasny-bootstrap.min.css');
 		echo $this->Html->css('https://raw.githubusercontent.com/chrisvogt/chrisvogt.github.io/develop/css/sandbox.css');
+		echo $this->Html->css('statsboard');
 
 		echo $this->Html->script('../components/jquery/dist/jquery.min.js');
 		echo $this->Html->script('http://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js');
@@ -70,15 +87,7 @@
 			<?php echo $this->Session->flash(); ?>
 			<?php echo $this->fetch('content'); ?>
 		</div>
-		<div id="footer" class="row">
-			<div class="col-sm-12">
-				<?php echo $this->Html->link(
-					$this->Html->image('cake.power.gif', ['alt' => 'Made with CakePHP', 'border' => '0']),
-					'http://www.cakephp.org/',
-					['target' => '_blank', 'escape' => false]
-				); ?>
-			</div>
-		</div>
+		<?php echo $this->element('footer'); ?>
 		<?php echo $this->fetch('scriptBottom'); ?>
 		<?php echo $this->Js->writeBuffer(); ?>
 	</div>
