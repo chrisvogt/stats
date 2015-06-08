@@ -58,7 +58,7 @@
 
 		echo $this->Html->css('http://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css');
 		echo $this->Html->css('../components/jasny-bootstrap/dist/css/jasny-bootstrap.min.css');
-		echo $this->Html->css('https://raw.githubusercontent.com/chrisvogt/chrisvogt.github.io/develop/css/sandbox.css');
+		echo $this->Html->css('https://raw.githubusercontent.com/chrisvogt/sandbox/develop/css/sandbox.css');
 		echo $this->Html->css('statsboard');
 
 		echo $this->Html->script('../components/jquery/dist/jquery.min.js');
