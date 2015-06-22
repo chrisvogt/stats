@@ -286,7 +286,7 @@ if (!env('APP_NAME')) {
 	Cache::config('_cake_model_', CacheDsn::parse(env('CACHE_CAKE_MODEL_URL')));
 
 	Cache::config('default', array(
-	    'engine' => 'Memcached',
+	    'engine' => 'MemcachedEngine',
 	    'prefix' => 'mc_',
 	    'duration' => '+12 hours',
 	    'servers' => explode(',', getenv('MEMCACHIER_SERVERS')),
