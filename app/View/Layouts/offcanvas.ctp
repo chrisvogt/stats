@@ -55,14 +55,14 @@
 		echo $this->Html->meta('icon') . "\n";
 
 		echo "\t" . $this->Html->css('http://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css') . "\n";
-		echo "\t" . $this->Html->css('../components/jasny-bootstrap/dist/css/jasny-bootstrap.min.css') . "\n";
-		echo "\t" . $this->Html->css('https://raw.githubusercontent.com/chrisvogt/sandbox/develop/css/sandbox.css') . "\n";
+		echo "\t" . $this->Html->css('/components/jasny-bootstrap/dist/css/jasny-bootstrap.min.css') . "\n";
+		echo "\t" . $this->Html->css('https://cdn.rawgit.com/chrisvogt/sandbox/develop/css/sandbox.css') . "\n";
 		echo "\t" . $this->Html->css('statsboard') . "\n";
 
-		echo "\t" . $this->Html->script('../components/jquery/dist/jquery.min.js') . "\n";
+		echo "\t" . $this->Html->script('/components/jquery/dist/jquery.min.js') . "\n";
 		echo "\t" . $this->Html->script('http://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js') . "\n";
-		echo "\t" . $this->Html->script('../components/jasny-bootstrap/dist/js/jasny-bootstrap.min.js') . "\n";
-		echo "\t" . $this->Html->script('../components/jasny-bootstrap/js/offcanvas.js') . "\n";
+		echo "\t" . $this->Html->script('/components/jasny-bootstrap/dist/js/jasny-bootstrap.min.js') . "\n";
+		echo "\t" . $this->Html->script('/components/jasny-bootstrap/js/offcanvas.js') . "\n";
 
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
