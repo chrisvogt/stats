@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "a4128f5dcef9029561e348de7b5fecce",
+    "hash": "25c70e3eade6cb4629d9d18505f8b369",
     "packages": [
         {
             "name": "ad7six/dsn",
@@ -140,12 +140,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/installers.git",
-                "reference": "a66f93a541c2214b4865161426b077e2b7d951de"
+                "reference": "e420b539e8d7b38b7c6f3f99dccc0386bd3dfe41"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/installers/zipball/a66f93a541c2214b4865161426b077e2b7d951de",
-                "reference": "a66f93a541c2214b4865161426b077e2b7d951de",
+                "url": "https://api.github.com/repos/composer/installers/zipball/e420b539e8d7b38b7c6f3f99dccc0386bd3dfe41",
+                "reference": "e420b539e8d7b38b7c6f3f99dccc0386bd3dfe41",
                 "shasum": ""
             },
             "replace": {
@@ -227,7 +227,7 @@
                 "zend",
                 "zikula"
             ],
-            "time": "2015-04-21 19:54:55"
+            "time": "2015-06-13 15:30:38"
         },
         {
             "name": "friendsofcake/crud",
@@ -235,12 +235,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfCake/crud.git",
-                "reference": "c3976f1478c681b0bbc132ec3a3e82c3984eeed5"
+                "reference": "e22c1563a51d86aac0d5054beee28b4afb60c802"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfCake/crud/zipball/c3976f1478c681b0bbc132ec3a3e82c3984eeed5",
-                "reference": "c3976f1478c681b0bbc132ec3a3e82c3984eeed5",
+                "url": "https://api.github.com/repos/FriendsOfCake/crud/zipball/e22c1563a51d86aac0d5054beee28b4afb60c802",
+                "reference": "e22c1563a51d86aac0d5054beee28b4afb60c802",
                 "shasum": ""
             },
             "require": {
@@ -293,7 +293,7 @@
                 "scaffolding",
                 "update"
             ],
-            "time": "2015-04-18 19:08:17"
+            "time": "2015-06-04 01:53:58"
         },
         {
             "name": "ghunti/highcharts-php",
@@ -560,12 +560,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/debug_kit.git",
-                "reference": "225b70b9038cb2930f222bbe84c9f1a354a6baa4"
+                "reference": "43ed7d47167f38f87b3f3a7acfea35ac7241d342"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cakephp/debug_kit/zipball/225b70b9038cb2930f222bbe84c9f1a354a6baa4",
-                "reference": "225b70b9038cb2930f222bbe84c9f1a354a6baa4",
+                "url": "https://api.github.com/repos/cakephp/debug_kit/zipball/43ed7d47167f38f87b3f3a7acfea35ac7241d342",
+                "reference": "43ed7d47167f38f87b3f3a7acfea35ac7241d342",
                 "shasum": ""
             },
             "require": {
@@ -601,7 +601,7 @@
                 "debug",
                 "kit"
             ],
-            "time": "2015-05-01 00:03:21"
+            "time": "2015-05-30 13:10:48"
         }
     ],
     "aliases": [],
@@ -611,7 +611,8 @@
     "prefer-lowest": false,
     "platform": {
         "php": "~5.5.0",
-        "ext-mbstring": "*"
+        "ext-mbstring": "*",
+        "ext-memcached": "*"
     },
     "platform-dev": []
 }
