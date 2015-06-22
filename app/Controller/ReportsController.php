@@ -47,6 +47,7 @@ class ReportsController extends AppController {
 		$chart7Days = $this->_cacheHandler('dailySummary', array(date('m/d/Y', strtotime('-7 days')), date('m/d/Y')));
 		$this->set('chart', $this->WakaChart->totalHoursChart($chart7Days['data']));
 		$this->set('totalHours', $this->_cacheHandler('getHoursLoggedForLast7Days'));
+		$this->response->header('Access-Control-Allow-Origin','*');
 		$this->set('_serialize', array('totalHours'));
 	}
 
