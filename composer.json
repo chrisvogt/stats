@@ -14,7 +14,8 @@
     "ad7six/dsn": "0.3.*",
     "chrisvogt/cakephp-wakatime": "~0.9",
     "ghunti/highcharts-php": "~3.0",
-    "ext-mbstring": "*"
+    "ext-mbstring": "*",
+    "ext-memcached": "*"
   },
   "require-dev": {
     "cakephp/debug_kit" : "2.2.*"
