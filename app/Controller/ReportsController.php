@@ -35,7 +35,7 @@ class ReportsController extends AppController {
 	 *
 	 * @var array
 	 */
-	public $components = ['WakaTime.WakaTime', 'WakaChart'];
+	public $components = ['WakaTime.WakaTime', 'WakaChart', 'RequestHandler'];
 
 	/**
 	 * Default action for the app
@@ -47,10 +47,11 @@ class ReportsController extends AppController {
 		$chart7Days = $this->_cacheHandler('dailySummary', array(date('m/d/Y', strtotime('-7 days')), date('m/d/Y')));
 		$this->set('chart', $this->WakaChart->totalHoursChart($chart7Days['data']));
 		$this->set('totalHours', $this->_cacheHandler('getHoursLoggedForLast7Days'));
+		$this->set('_serialize', array('totalHours'));
 	}
 
 	public function _cacheHandler($request, $args = null) {
-		if (Configure::read($request)) {
+		if (Cache::read($request)) {
 			$response = Cache::read($request);
 		} else {
 			$a = func_get_args($args);
