@@ -18,7 +18,6 @@
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
 App::uses('Component', 'Controller');
-
 App::import(
 	'Vendor',
 	'Highchart',
@@ -26,6 +25,7 @@ App::import(
 );
 
 use Ghunti\HighchartsPHP;
+
 /**
  * WakaChart Component class
  *
@@ -55,7 +55,7 @@ class WakaChartComponent extends Component {
 	}
 
 	/**
-	 * Overrides initialize
+	 * Hooks onto controller initialization
 	 *
 	 * Overrides applied before the controller’s beforeFilter method.
 	 *
@@ -67,20 +67,35 @@ class WakaChartComponent extends Component {
 		return true;
 	}
 
+/**
+ * Hours logged by day chart
+ *
+ * Generates an hours logged by day chart for the last 7 days.
+ *
+ * @param array $data
+ * @return Ghunti\HighchartsPHP\Highchart
+ */
 	public function totalHoursChart($data) {
 		$chart = new Ghunti\HighchartsPHP\Highchart();
 		$chart->chart = array(
 			'renderTo' => 'chart7Days', // div ID where to render chart
-			'type' => 'spline'
+			'type' => 'spline',
 		);
 		$chart->title = array('text' => 'Hours logged by day');
 		$chart->subtitle->text = 'Open source contributions';
 		$chart->xAxis->categories = $this->_extractTitles($data);
+		$chart->yAxis['min'] = 0;
 		$chart->series[] = array('name' => 'Day', 'data' => $this->_extractStats($data));
 
 		return $chart;
 	}
 
+/**
+ * Extracts titles from WakaTime data
+ *
+ * @param Ghunti\HighchartsPHP\Highchart $data
+ * @return array
+ */
 	protected function _extractTitles($data) {
 		$titles = array();
 		foreach ($data as $day => $val) {
@@ -89,6 +104,12 @@ class WakaChartComponent extends Component {
 		return $titles;
 	}
 
+/**
+ * Extracts values from the WakaTime data
+ *
+ * @param Ghunti\HighchartsPHP\Highchart
+ * @return array
+ */
 	protected function _extractStats($data) {
 		$stats = array();
 		foreach ($data as $day => $val) {
