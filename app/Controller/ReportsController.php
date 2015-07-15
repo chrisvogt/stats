@@ -38,7 +38,7 @@ class ReportsController extends AppController {
 	public $components = ['WakaTime.WakaTime', 'WakaChart', 'RequestHandler'];
 
 	/**
-	 * Default action for the app
+	 * Stats dashboard
 	 *
 	 * @return void
 	 */
@@ -51,6 +51,11 @@ class ReportsController extends AppController {
 		$this->set('_serialize', array('totalHours'));
 	}
 
+/**
+ * Caches request and response data
+ *
+ * @return mixed object|array
+ */
 	public function _cacheHandler($request, $args = null) {
 		if (Cache::read($request)) {
 			$response = Cache::read($request);

@@ -18,8 +18,8 @@
  * @link          http://stats.chrisvogt.me Developer Stats, CHRISVOGT.me
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
-?><!DOCTYPE html lang="en">
-<html>
+?><!DOCTYPE html>
+<html lang="en">
 <head>
 	<?php echo $this->Html->charset(); ?>
 	<!--
@@ -49,15 +49,17 @@
 		echo "\t" . $this->Html->meta(['name' => 'twitter:title', 'content' => 'Chris Vogt\'s Open Source Stats']) . "\n";
 		echo "\t" . $this->Html->meta(['name' => 'twitter:description', 'content' => 'A public report of my realtime open source stats and contributions. ']) . "\n";
 		echo "\t" . $this->Html->meta(['name' => 'twitter:image', 'content' => $this->Html->Url('/img/screenshot.png', true)]) . "\n";
+		echo "\t" . $this->Html->meta(['name' => 'theme-color', 'content' => '#5D5096']) . "\n";
 	?>
-
 	<?php
 		echo $this->Html->meta('icon') . "\n";
 
 		echo "\t" . $this->Html->css('http://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css') . "\n";
 		echo "\t" . $this->Html->css('/components/jasny-bootstrap/dist/css/jasny-bootstrap.min.css') . "\n";
-		echo "\t" . $this->Html->css('https://cdn.rawgit.com/chrisvogt/sandbox/develop/css/sandbox.css') . "\n";
+		echo "\t" . $this->Html->css('https://cdn.rawgit.com/chrisvogt/projects/develop/css/projects.css') . "\n";
 		echo "\t" . $this->Html->css('statsboard') . "\n";
+		echo "\t" . $this->Html->css('//cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.1.1/gh-fork-ribbon.min.css') . "\n";
+		echo "\t" . $this->Html->css('//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css') . "\n";
 
 		echo "\t" . $this->Html->script('/components/jquery/dist/jquery.min.js') . "\n";
 		echo "\t" . $this->Html->script('http://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js') . "\n";
@@ -71,6 +73,7 @@
 	<!--[if lt IE 9]>
 		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 		<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+		<?php echo $this->Html->css('//cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.1.1/gh-fork-ribbon.ie.min.css') . "\n"; ?>
 	<![endif]-->
 </head>
 <body>
@@ -78,7 +81,6 @@
 	<?php echo $this->element('navbar-top'); ?>
 
 	<?php echo $this->element('jumbotron'); ?>
-	<?php echo $this->element('social'); ?>
 
 	<div class="container">
 		<div id="content">

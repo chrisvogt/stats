@@ -1,21 +1,155 @@
-.page-header p.lead {
-	color: #cecece;
+/**
+███████╗████████╗ █████╗ ████████╗███████╗
+██╔════╝╚══██╔══╝██╔══██╗╚══██╔══╝██╔════╝
+███████╗   ██║   ███████║   ██║   ███████╗
+╚════██║   ██║   ██╔══██║   ██║   ╚════██║
+███████║   ██║   ██║  ██║   ██║   ███████║
+╚══════╝   ╚═╝   ╚═╝  ╚═╝   ╚═╝   ╚══════╝
+ 												by CHRISVOGT.me */
+/**
+ * Structure
+ */
+ body {
+ 	background: url('https://cdn.rawgit.com/chrisvogt/chrisvogt.me/develop/img/bg-delaunay.png') no-repeat top center;
+ 	background-size: cover;
+ }
+.page-header {
+	background: none;
+	border: none;
+	margin-bottom: 2em;
 }
 .social .container {
 	margin-top: 6px;
 }
+.social-links {
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	bottom: 24px;
+	width: 100%;
+	text-align: center;
+}
+.social-links li {
+	display: inline-block;
+}
 #footer {
 	margin-top: 8px;
 }
-.label-primary a {
+
+/**
+ * Typography
+ */
+body {
+	color: #efefef;
+}
+.page-header p.lead {
+	color: #cecece;
+}
+a {
 	color: #cecece;
 	text-decoration: none;
 }
-.label-primary a:hover {
+a:hover {
 	color: #fefefe;
+	text-decoration: none;
 }
-@media (max-width: 979px) {
-	#ghRibbon {
-		display: none;
-	}
+.social-links a:hover {
+	color: #5E4F84;
+}
+#footer {
+	color: #aeaeae;
+}
+#footer .heart {
+	color: #990000;
+}
+
+/**
+ * Elements
+ */
+.github-fork-ribbon {
+	background-color: #975D9A!important;
+  -moz-transition: all .2s ease-in;
+  -o-transition: all .2s ease-in;
+  -webkit-transition: all .2s ease-in;
+  transition: all .2s ease-in;
+}
+
+/* Social Container */
+div.social {
+	background: none;
+	border: none;
+	margin-bottom: 0;
+}
+
+/**
+ * Hover.css
+ */
+
+/* Grow Shadow */
+.hvr-grow-shadow {
+ display: inline-block;
+ vertical-align: middle;
+ -webkit-transform: translateZ(0);
+ transform: translateZ(0);
+ box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+ -webkit-backface-visibility: hidden;
+ backface-visibility: hidden;
+ -moz-osx-font-smoothing: grayscale;
+ -webkit-transition-duration: 0.3s;
+ transition-duration: 0.3s;
+ -webkit-transition-property: box-shadow, transform;
+ transition-property: box-shadow, transform;
+}
+.hvr-grow-shadow:hover, .hvr-grow-shadow:focus, .hvr-grow-shadow:active {
+ box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
+ -webkit-transform: scale(1.1);
+ transform: scale(1.1);
+}
+/* Shrink */
+.hvr-shrink {
+ -webkit-transform: translateZ(0);
+ transform: translateZ(0);
+ box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+ -webkit-backface-visibility: hidden;
+ backface-visibility: hidden;
+ -moz-osx-font-smoothing: grayscale;
+ -webkit-transition-duration: 0.3s;
+ transition-duration: 0.3s;
+ -webkit-transition-property: transform;
+ transition-property: transform;
+}
+.hvr-shrink:hover, .hvr-shrink:focus, .hvr-shrink:active {
+ -webkit-transform: scale(0.9);
+ transform: scale(0.9);
+}
+/* Grow Rotate */
+.hvr-grow-rotate {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+}
+.hvr-grow-rotate:hover, .hvr-grow-rotate:focus, .hvr-grow-rotate:active {
+  -webkit-transform: scale(1.1) rotate(4deg);
+  transform: scale(1.1) rotate(4deg);
+}
+/* Back Pulse */
+@-webkit-keyframes hvr-back-pulse {
+  50% {
+    background-color: rgba(32, 152, 209, 0.75);
+  }
+}
+
+@keyframes hvr-back-pulse {
+  50% {
+    background-color: rgba(20, 76, 67, 0.75);
+  }
 }
