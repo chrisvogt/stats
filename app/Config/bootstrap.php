@@ -24,7 +24,7 @@
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
 Configure::write('Site.title', 'Stats');
-Configure::write('Site.twitter', 'C1V0');
+Configure::write('Site.twitter', 'c1v0');
 
 App::build(
 	[

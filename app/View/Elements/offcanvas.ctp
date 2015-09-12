@@ -4,11 +4,12 @@
  */ ?>
 
 	<div class="navmenu navmenu-default navmenu-fixed-left offcanvas">
-	  <a class="navmenu-brand hvr-shrink" href="http://www.chrisvogt.me"><img src="https://cdn.rawgit.com/chrisvogt/chrisvogt.github.io/develop/img/favicon-152.png" class="img img-responsive center-block" height="119" width="120" alt="CHRISVOGT.me icon"></a>
+	  <a class="navmenu-brand hvr-shrink" href="http://www.chrisvogt.me"><img src="https://cdn.rawgit.com/chrisvogt/chrisvogt.github.io/master/img/favicon-152.png" class="img img-responsive center-block" height="119" width="120" alt="CHRISVOGT.me icon"></a>
 		<ul class="nav navmenu-nav">
 			<li><a href="https://www.chrisvogt.me" title="CHRISVOGT.me"><i class="fa fa-home"></i> Blog</a></li>
 	    <li><a href="http://projects.chrisvogt.me" title="Open source projects by Chris Vogt"><i class="fa fa-floppy-o"></i> Projects</a></li>
 	    <li class="active"><a href="#" title="Open source contributions by Chris Vogt"><i class="fa fa-history"></i> Stats</a></li>
+	    <li><a href="http://resume.chrisvogt.me" title="Chris Vogt's résumé on Stack Overflow Careers" target="_blank"><i class="fa fa-briefcase"></i> Résumé <i class="fa fa-external-link" style="font-size: .74em;"></i></a></li>
 	  </ul>
     <ul class="social-links">
       <li>

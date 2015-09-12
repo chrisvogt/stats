@@ -288,7 +288,7 @@ if (!env('APP_NAME')) {
 	Cache::config('default', array(
 	    'engine' => 'Memcached',
 	    'prefix' => 'mc_',
-	    'duration' => '+12 hours',
+	    'duration' => '+1 hours',
 	    'servers' => explode(',', getenv('MEMCACHIER_SERVERS')),
 	    'compress' => false,
 	    'persistent' => 'memcachier',

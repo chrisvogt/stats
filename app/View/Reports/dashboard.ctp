@@ -4,7 +4,7 @@
  */ ?>
 		<div class="row">
 			<div class="col-sm-12">
-				<p class="lead"><?php echo $userData['data']['full_name']; ?> has logged <strong><?php echo $totalHours; ?> hours</strong> in the last 7 days.</p>
+				<p class="lead"><i class="fa fa-twitter"></i><a href="https://twitter.com/c1v0" title="Chris Vogt on Twitter">@<?php echo $userData['data']['full_name']; ?></a> has logged <strong><?php echo $totalHours; ?> hours</strong> in the last 7 days.</p>
 			</div>
 		</div>
 
