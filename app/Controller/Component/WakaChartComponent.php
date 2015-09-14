@@ -90,6 +90,71 @@ class WakaChartComponent extends Component {
 		return $chart;
 	}
 
+	/**
+	 * This function will take:
+	 * 	- the result from Daily Summary()
+	 *
+	 * see: https://cdn.rawgit.com/chrisvogt/8ddba818f7c312b58cc2/raw/f3330d0b9b0369cf121af0baa63ec9cea4cf5d0e/summaries.json
+	 */
+	public function getLanguageChart() {
+		// $this->WakaTime->dailySummary('09/6/2015','09/13/2015');
+		$HttpSocket = new HttpSocket();
+		$r = $HttpSocket->get('https://cdn.rawgit.com/chrisvogt/8ddba818f7c312b58cc2/raw/f3330d0b9b0369cf121af0baa63ec9cea4cf5d0e/summaries.json');
+		$data = json_decode($r);
+
+#		Debugger::dump($this->_extractLanguageStats($data));
+#		die();
+
+		$chart = new Ghunti\HighchartsPHP\Highchart();
+
+		$chart->chart->renderTo = "chartLanguages";
+		$chart->chart->plotBackgroundColor = "none";
+		$chart->title->text = "Language frequency";
+		$chart->subtitle->text = 'Languages used this week';
+
+		$chart->tooltip->formatter = new Ghunti\HighchartsPHP\HighchartJsExpr(
+		    "function() {
+		    return '<b>'+ this.point.name +'</b>: '+ this.percentage.toFixed(1) +' %';}");
+
+		$chart->plotOptions->pie->allowPointSelect = 1;
+		$chart->plotOptions->pie->cursor = "pointer";
+		$chart->plotOptions->pie->dataLabels->enabled = 1;
+		$chart->plotOptions->pie->dataLabels->color = "#000000";
+		$chart->plotOptions->pie->dataLabels->connectorColor = "#000000";
+
+		$chart->plotOptions->pie->dataLabels->formatter = new Ghunti\HighchartsPHP\HighchartJsExpr(
+		    "function() {
+		    return '<b>'+ this.point.name +'</b>: '+ this.percentage.toFixed(1) +' %'; }");
+
+		$chart->series[] = array(
+		    'type' => "pie",
+		    'name' => "Languages",
+		    'data' => $this->_extractLanguageStats($data)
+		);
+
+		return $chart;
+	}
+
+	protected function _extractLanguageStats($data) {
+		// Debugger::dump($data->data[4]->languages[0]->name);
+		// debug($data->data[4]->languages[0]);
+		$langs = [];
+		foreach ($data->data as $event) {
+			foreach ($event->languages as $lang) {
+				if (!isset($langs[$lang->name])) {
+					$langs[$lang->name] = $lang->total_seconds;
+				} else {
+					$langs[$lang->name] += $lang->total_seconds;
+				}
+			}
+		}
+		$l = [];
+		foreach ($langs as $k => $v) {
+			$l[] = [$k, $v];
+		}
+		return $l;
+	}
+
 /**
  * Extracts titles from WakaTime data
  *

@@ -105,6 +105,9 @@ div.social {
 	border: none;
 	margin-bottom: 0;
 }
+div.chart {
+	margin-bottom: 8px;
+}
 
 /**
  * Hover.css
