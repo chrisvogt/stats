@@ -79,13 +79,34 @@ class WakaChartComponent extends Component {
 		$chart = new Ghunti\HighchartsPHP\Highchart();
 		$chart->chart = array(
 			'renderTo' => 'chart7Days', // div ID where to render chart
-			'type' => 'spline',
+			'type' => 'areaspline',
 		);
 		$chart->title = array('text' => 'Hours logged by day');
 		$chart->subtitle->text = 'Open source contributions';
 		$chart->xAxis->categories = $this->_extractTitles($data);
 		$chart->yAxis['min'] = 0;
-		$chart->series[] = array('name' => 'Day', 'data' => $this->_extractStats($data));
+		$chart->series[0] = array(
+			'name' => 'Hours',
+			'data' => $this->_extractStats($data),
+	    'tooltip' => array(
+        'valueDecimals' => 1
+    	)
+		);
+		$chart->legend->backgroundColor = "#efefef";
+		$chart->series[0]->fillColor->linearGradient->x1 = 0;
+		$chart->series[0]->fillColor->linearGradient->y1 = 0;
+		$chart->series[0]->fillColor->linearGradient->x2 = 0;
+		$chart->series[0]->fillColor->linearGradient->y2 = 1;
+		$chart->series[0]->fillColor->stops = array(
+		    array(
+		        0,
+		        new Ghunti\HighchartsPHP\HighchartJsExpr("Highcharts.getOptions().colors[0]")
+		    ),
+		    array(
+		        1,
+		        "rgba(93,80,150,0)"
+		    )
+		);
 
 		return $chart;
 	}
@@ -96,15 +117,7 @@ class WakaChartComponent extends Component {
 	 *
 	 * see: https://cdn.rawgit.com/chrisvogt/8ddba818f7c312b58cc2/raw/f3330d0b9b0369cf121af0baa63ec9cea4cf5d0e/summaries.json
 	 */
-	public function getLanguageChart() {
-		// $this->WakaTime->dailySummary('09/6/2015','09/13/2015');
-		$HttpSocket = new HttpSocket();
-		$r = $HttpSocket->get('https://cdn.rawgit.com/chrisvogt/8ddba818f7c312b58cc2/raw/f3330d0b9b0369cf121af0baa63ec9cea4cf5d0e/summaries.json');
-		$data = json_decode($r);
-
-#		Debugger::dump($this->_extractLanguageStats($data));
-#		die();
-
+	public function getLanguageChart($data) {
 		$chart = new Ghunti\HighchartsPHP\Highchart();
 
 		$chart->chart->renderTo = "chartLanguages";
@@ -129,22 +142,20 @@ class WakaChartComponent extends Component {
 		$chart->series[] = array(
 		    'type' => "pie",
 		    'name' => "Languages",
-		    'data' => $this->_extractLanguageStats($data)
+		    'data' => $this->_extractLanguageStats($data['data'])
 		);
 
 		return $chart;
 	}
 
 	protected function _extractLanguageStats($data) {
-		// Debugger::dump($data->data[4]->languages[0]->name);
-		// debug($data->data[4]->languages[0]);
 		$langs = [];
-		foreach ($data->data as $event) {
-			foreach ($event->languages as $lang) {
-				if (!isset($langs[$lang->name])) {
-					$langs[$lang->name] = $lang->total_seconds;
+		foreach ($data as $event) {
+			foreach ($event['languages'] as $lang) {
+				if (!isset($langs[$lang['name']])) {
+					$langs[$lang['name']] = $lang['total_seconds'];
 				} else {
-					$langs[$lang->name] += $lang->total_seconds;
+					$langs[$lang['name']] += $lang['total_seconds'];
 				}
 			}
 		}

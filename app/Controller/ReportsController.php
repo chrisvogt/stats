@@ -18,7 +18,6 @@
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
 App::uses('AppController', 'Controller');
-App::uses('HttpSocket', 'Network/Http');
 
 /**
  * Application Controller
@@ -45,10 +44,11 @@ class ReportsController extends AppController {
 	 */
 	public function dashboard() {
 		$this->set('userData', $this->_cacheHandler('currentUser'));
-		$chart7Days = $this->_cacheHandler('dailySummary', array(date('m/d/Y', strtotime('-7 days')), date('m/d/Y')));
+		$dailySummaries = $this->_cacheHandler('dailySummary', array(date('m/d/Y', strtotime('-7 days')), date('m/d/Y')));
+		$chart7Days = $this->_cacheHandler('dailySummary', $dailySummaries);
 		$this->set('chart', $this->WakaChart->totalHoursChart($chart7Days['data']));
 		$this->set('totalHours', $this->_cacheHandler('getHoursLoggedForLast7Days'));
-		$this->set('langChart', $this->WakaChart->getLanguageChart());
+		$this->set('langChart', $this->WakaChart->getLanguageChart($dailySummaries));
 		$this->response->header('Access-Control-Allow-Origin','*');
 		$this->set('_serialize', array('totalHours'));
 	}
