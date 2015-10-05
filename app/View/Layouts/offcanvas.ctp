@@ -104,8 +104,8 @@
 			<?php echo $this->fetch('content'); ?>
 		</div>
 		<?php echo $this->element('footer'); ?>
-		<?php echo $this->fetch('scriptBottom'); ?>
-		<?php echo $this->Js->writeBuffer(); ?>
 	</div>
+	<?php echo $this->fetch('scriptBottom'); ?>
+	<?php echo $this->Js->writeBuffer(); ?>
 </body>
 </html>

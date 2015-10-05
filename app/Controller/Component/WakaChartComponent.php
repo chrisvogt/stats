@@ -78,36 +78,29 @@ class WakaChartComponent extends Component {
 	public function totalHoursChart($data) {
 		$chart = new Ghunti\HighchartsPHP\Highchart();
 		$chart->chart = array(
-			'renderTo' => 'chart7Days', // div ID where to render chart
-			'type' => 'areaspline',
+			'renderTo' 	=> 'chart7Days',
+			'type' 		=> 'areaspline',
 		);
-		$chart->title = array('text' => 'Hours logged by day');
-		$chart->subtitle->text = 'Open source contributions';
+		$chart->credits->enabled = false;
+		$chart->title = array('text' => 'Time spent coding');
+		$chart->chart->backgroundColor = null;
+		$chart->title->style->color = "#fefefe";
+		$chart->chart->style = ["fontFamily" => "Open Sans, sans-serif"];
+		$chart->subtitle->text = 'Last 7 days';
 		$chart->xAxis->categories = $this->_extractTitles($data);
+		$chart->xAxis->labels->style->color = "#efefef";
 		$chart->yAxis['min'] = 0;
+		$chart->yAxis->title->text = "Hours";
+		$chart->yAxis->title->style->color = "#fefefe";
 		$chart->series[0] = array(
 			'name' => 'Hours',
 			'data' => $this->_extractStats($data),
-	    'tooltip' => array(
-        'valueDecimals' => 1
-    	)
+	    	'tooltip' => array(
+        		'valueDecimals' => 1
+    		)
 		);
-		$chart->legend->backgroundColor = "#efefef";
-		$chart->series[0]->fillColor->linearGradient->x1 = 0;
-		$chart->series[0]->fillColor->linearGradient->y1 = 0;
-		$chart->series[0]->fillColor->linearGradient->x2 = 0;
-		$chart->series[0]->fillColor->linearGradient->y2 = 1;
-		$chart->series[0]->fillColor->stops = array(
-		    array(
-		        0,
-		        new Ghunti\HighchartsPHP\HighchartJsExpr("Highcharts.getOptions().colors[0]")
-		    ),
-		    array(
-		        1,
-		        "rgba(93,80,150,0)"
-		    )
-		);
-
+		$chart->legend->enabled = false;
+		
 		return $chart;
 	}
 
@@ -121,24 +114,24 @@ class WakaChartComponent extends Component {
 		$chart = new Ghunti\HighchartsPHP\Highchart();
 
 		$chart->chart->renderTo = "chartLanguages";
-		$chart->chart->plotBackgroundColor = "none";
-		$chart->title->text = "Language frequency";
-		$chart->subtitle->text = 'Languages used this week';
-
+		$chart->credits->enabled = false;
+		$chart->chart->plotBackgroundColor = null;
+		$chart->chart->backgroundColor = null;
+		$chart->chart->style = ["fontFamily" => "Open Sans, sans-serif"];
+		$chart->title->text = "Languages";
+		$chart->title->style->color = "#fefefe";
+		$chart->subtitle->text = 'Languages used over the last 7 days';
 		$chart->tooltip->formatter = new Ghunti\HighchartsPHP\HighchartJsExpr(
 		    "function() {
 		    return '<b>'+ this.point.name +'</b>: '+ this.percentage.toFixed(1) +' %';}");
-
 		$chart->plotOptions->pie->allowPointSelect = 1;
 		$chart->plotOptions->pie->cursor = "pointer";
 		$chart->plotOptions->pie->dataLabels->enabled = 1;
-		$chart->plotOptions->pie->dataLabels->color = "#000000";
-		$chart->plotOptions->pie->dataLabels->connectorColor = "#000000";
-
+		$chart->plotOptions->pie->dataLabels->color = "#efefef";
+		$chart->plotOptions->pie->dataLabels->connectorColor = "#cecece";
 		$chart->plotOptions->pie->dataLabels->formatter = new Ghunti\HighchartsPHP\HighchartJsExpr(
 		    "function() {
 		    return '<b>'+ this.point.name +'</b>: '+ this.percentage.toFixed(1) +' %'; }");
-
 		$chart->series[] = array(
 		    'type' => "pie",
 		    'name' => "Languages",

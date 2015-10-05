@@ -9,8 +9,11 @@
 		</div>
 
 		<div class="row">
-			<div id="chart7Days" class="col-md-6 chart"></div>
-			<div id="chartLanguages" class="col-md-6 chart"></div>
+			<div id="chart7Days" class="col-md-12 chart"></div>
+		</div>
+
+		<div class="row">
+			<div id="chartLanguages" class="col-md-12 chart"></div>
 		</div>
 
 		<?php $chart->printScripts(); ?>
