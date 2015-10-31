@@ -100,7 +100,7 @@ class WakaChartComponent extends Component {
     		)
 		);
 		$chart->legend->enabled = false;
-		
+
 		return $chart;
 	}
 
@@ -168,7 +168,7 @@ class WakaChartComponent extends Component {
 	protected function _extractTitles($data) {
 		$titles = array();
 		foreach ($data as $day => $val) {
-			$titles[] = $val['range']['date_human'];
+			$titles[] = $val['range']['text'];
 		}
 		return $titles;
 	}
