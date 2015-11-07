@@ -1,0 +1,1 @@
+{"virtualbox":{"/var/www":{"mount_options":["dmode=777","fmode=666"],"guestpath":"/var/www","hostpath":"/var/www/stats","disabled":false}}}

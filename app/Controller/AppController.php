@@ -36,11 +36,11 @@ class AppController extends Controller {
 
 	use CrudControllerTrait;
 
-/**
- * List of global controller components
- *
- * @var array
- */
+    /**
+     * List of global controller components
+     *
+     * @var array
+     */
 	public $components = [
 		'RequestHandler',
 		'Session',
@@ -54,11 +54,11 @@ class AppController extends Controller {
 		'Paginator' => ['settings' => ['paramType' => 'querystring', 'limit' => 30]]
 	];
 
-/**
- * beforeFilter() overrides
- *
- * @return void
- */
+    /**
+     * beforeFilter() overrides
+     *
+     * @return void
+     */
 	public function beforeFilter() {
 		Parent::beforeFilter();
 		$this->layout = 'offcanvas';

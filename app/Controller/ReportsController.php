@@ -25,51 +25,46 @@ App::uses('AppController', 'Controller');
  * Add your application-wide methods in the class below, your controllers
  * will inherit them.
  *
- * @package		app.Controller.ReportsController
- * @link		http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
+ * @package     app.Controller.ReportsController
+ * @link        http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
 class ReportsController extends AppController {
 
-	/**
-	 * List of controller components
-	 *
-	 * @var array
-	 */
-	public $components = ['WakaTime.WakaTime', 'WakaChart', 'RequestHandler'];
+    /**
+     * List of controller components
+     *
+     * @var array
+     */
+    public $components = ['WakaTime', 'WakaChart', 'RequestHandler'];
 
-	/**
-	 * Stats dashboard
-	 *
-	 * @return void
-	 */
-	public function dashboard() {
-		$this->set('userData', $this->_cacheHandler('currentUser'));
-		$dailySummaries = $this->_cacheHandler('dailySummary', array(date('m/d/Y', strtotime('-7 days')), date('m/d/Y')));
-		$chart7Days = $this->_cacheHandler('dailySummary', $dailySummaries);
-		$this->set('chart', $this->WakaChart->totalHoursChart($chart7Days['data']));
-		$this->set('totalHours', $this->_cacheHandler('getHoursLoggedForLast7Days'));
-		$this->set('langChart', $this->WakaChart->getLanguageChart($dailySummaries));
-		$this->response->header('Access-Control-Allow-Origin','*');
-		$this->set('_serialize', array('totalHours'));
-	}
+    /**
+     * Stats dashboard
+     *
+     * @return void
+     */
+    public function dashboard() {
+        $ds = Cache::remember('summaries', function() {
+            return $this->WakaTime->getDailySummaries(strtotime('-30 days'), strtotime('now'));
+        }, 'resource');
 
-/**
- * Caches request and response data
- *
- * @return mixed object|array
- */
-	public function _cacheHandler($request, $args = null) {
-		if (Cache::read($request)) {
-			$response = Cache::read($request);
-		} else {
-			$a = func_get_args($args);
-			if (isset($a[1])) {
-				$response = call_user_func_array(array($this->WakaTime, $request), $a[1]);
-			} else {
-				$response = $this->WakaTime->$request();
-			}
-			Cache::write($request, $response);
-		}
-		return $response;
-	}
+        $this->set('chart', $this->WakaChart->totalHoursChart($ds['data']));
+        $this->set('langChart', $this->WakaChart->getLanguageChart($ds['data']));
+        $this->set('totalTimeInWords', $this->getTime($ds['data']));
+        $this->set('_serialize', array('totalTimeInWords'));
+        $this->response->header('Access-Control-Allow-Origin','*');
+    }
+
+    /**
+     * Extracts the total seconds and converts it to words.
+     *
+     * @param array $data
+     * @return string
+     */
+    private function getTime($data) {
+        $seconds = $this->WakaTime->calculateTotalSeconds($data);
+        $words   = $this->WakaTime->convertSecondsToWords($seconds);
+
+        return $words;
+    }
+
 }

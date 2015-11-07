@@ -10,7 +10,7 @@
  * Structure
  */
  body {
- 	background: url('https://cdn.rawgit.com/chrisvogt/chrisvogt.me/master/img/bg-delaunay.png') no-repeat top center;
+ 	background: url('../img/bg-delaunay.png') no-repeat top center;
  	background-size: cover;
  }
 .page-header {

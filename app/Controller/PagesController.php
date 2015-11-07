@@ -31,26 +31,26 @@ App::uses('AppController', 'Controller');
  */
 class PagesController extends AppController {
 
-/**
- * Controller name
- *
- * @var string
- */
+    /**
+     * Controller name
+     *
+     * @var string
+     */
 	public $name = 'Pages';
 
-/**
- * This controller does not use a model
- *
- * @var array
- */
+    /**
+     * This controller does not use a model
+     *
+     * @var array
+     */
 	public $uses = [];
 
-/**
- * Displays a view
- *
- * @return void
- * @throws NotFoundException
- */
+    /**
+     * Displays a view
+     *
+     * @return void
+     * @throws NotFoundException
+     */
 	public function display() {
 		$path = func_get_args();
 

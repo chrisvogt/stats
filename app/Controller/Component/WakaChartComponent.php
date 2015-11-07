@@ -82,7 +82,7 @@ class WakaChartComponent extends Component {
 			'type' 		=> 'areaspline',
 		);
 		$chart->credits->enabled = false;
-		$chart->title = array('text' => 'Time spent coding');
+		$chart->title = array('text' => 'Time contributed');
 		$chart->chart->backgroundColor = null;
 		$chart->title->style->color = "#fefefe";
 		$chart->chart->style = ["fontFamily" => "Open Sans, sans-serif"];
@@ -118,7 +118,7 @@ class WakaChartComponent extends Component {
 		$chart->chart->plotBackgroundColor = null;
 		$chart->chart->backgroundColor = null;
 		$chart->chart->style = ["fontFamily" => "Open Sans, sans-serif"];
-		$chart->title->text = "Languages";
+		$chart->title->text = "Languages used";
 		$chart->title->style->color = "#fefefe";
 		$chart->subtitle->text = 'Languages used over the last 7 days';
 		$chart->tooltip->formatter = new Ghunti\HighchartsPHP\HighchartJsExpr(
@@ -135,7 +135,7 @@ class WakaChartComponent extends Component {
 		$chart->series[] = array(
 		    'type' => "pie",
 		    'name' => "Languages",
-		    'data' => $this->_extractLanguageStats($data['data'])
+		    'data' => $this->_extractLanguageStats($data)
 		);
 
 		return $chart;
@@ -167,9 +167,11 @@ class WakaChartComponent extends Component {
  */
 	protected function _extractTitles($data) {
 		$titles = array();
+
 		foreach ($data as $day => $val) {
-			$titles[] = $val['range']['text'];
+			$titles[] = $val['range']['date'];
 		}
+
 		return $titles;
 	}
 
@@ -181,11 +183,13 @@ class WakaChartComponent extends Component {
  */
 	protected function _extractStats($data) {
 		$stats = array();
+
 		foreach ($data as $day => $val) {
 			$date = $val['range']['date'];
 			$minutes = number_format($val['grand_total']['minutes'] / 60, 2);
 			$stats[] = $val['grand_total']['hours'] + $minutes;
 		}
+
 		return $stats;
 	}
 

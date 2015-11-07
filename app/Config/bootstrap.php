@@ -79,7 +79,13 @@ App::build(
  *
  */
 CakePlugin::load('Crud');
-CakePlugin::load('WakaTime', ['bootstrap' => true]);
+
+/**
+ * Loads the WakaTime configuration file, if present.
+ */
+if (file_exists(APP . 'Config' . DS . 'wakatime.php')) {
+	Configure::load('wakatime');
+}
 
 if (php_sapi_name() !== 'cli' && Configure::read('debug') && in_array('DebugKit', App::objects('plugin'))) {
 	CakePlugin::load('DebugKit');
