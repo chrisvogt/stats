@@ -40,7 +40,7 @@
 		echo $this->Html->meta(['name' => 'description', 'content' => 'Chris Vogt\'s open source contributions this week']) . "\n";
 		echo "\t" . $this->Html->meta(['name' => 'author', 'content' => 'Chris Vogt']) . "\n";
 		echo "\t" . $this->Html->meta(['name' => 'robots', 'content' => 'index, follow']) . "\n";
-		echo "\t" . $this->Html->meta(['property' => 'og:image', 'content' => $this->Html->Url('/img/screenshot.png', true)]) . "\n";
+		echo "\t" . $this->Html->meta(['property' => 'og:image', 'content' => $this->Html->Url('/img/screenshot.jpg', true)]) . "\n";
 		echo "\t" . $this->Html->meta(['property' => 'og:description', 'content' => 'A public report of my realtime open source stats and contributions. ']) . "\n";
 		echo "\t" . $this->Html->meta(['property' => 'og:author', 'content' => 'Chris Vogt']) . "\n";
 		echo "\t" . $this->Html->meta(['name' => 'twitter:card', 'content' => 'summary_large_image']) . "\n";
@@ -48,7 +48,7 @@
 		echo "\t" . $this->Html->meta(['name' => 'twitter:creator', 'content' => '@C1V0']) . "\n";
 		echo "\t" . $this->Html->meta(['name' => 'twitter:title', 'content' => 'Chris Vogt\'s open source contributions this week']) . "\n";
 		echo "\t" . $this->Html->meta(['name' => 'twitter:description', 'content' => 'A public report of my realtime open source stats and contributions. ']) . "\n";
-		echo "\t" . $this->Html->meta(['name' => 'twitter:image', 'content' => $this->Html->Url('/img/screenshot.png', true)]) . "\n";
+		echo "\t" . $this->Html->meta(['name' => 'twitter:image', 'content' => $this->Html->Url('/img/screenshot.jpg', true)]) . "\n";
 		echo "\t" . $this->Html->meta(['name' => 'theme-color', 'content' => '#5D5096']) . "\n";
 	?>
 	  <link rel="shortcut icon" href="https://cdn.rawgit.com/chrisvogt/chrisvogt.me/master/img/favicon.ico">
