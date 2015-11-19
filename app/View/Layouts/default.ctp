@@ -21,7 +21,8 @@ $cakeDescription = __d('cake_dev', 'stats.chrisvogt.me');
 ?><!DOCTYPE html>
 <html>
 <head>
-	<?php echo $this->Html->charset() . "\n"; ?>
+        <?php echo $this->Html->charset() . "\n"; ?>
+        <?php echo $this->Html->meta(['name' => 'viewport', 'content' => 'width=device-width, initial-scale=1.0']) . "\n";?>
 <!--
     ____ _  _ ____ _ ____ _  _ ____ ____ ___  _  _ ____
     |    |__| |__/ | [__  |  | |  | | __  |   |\/| |___
@@ -32,22 +33,22 @@ $cakeDescription = __d('cake_dev', 'stats.chrisvogt.me');
 -->
 	<title><?php echo $title_for_layout; ?> — <?php echo $cakeDescription; ?></title>
 
-    <?php
-        echo "\t" . $this->Html->meta(['name' => 'description', 'content' => $title_for_layout]) . "\n";
-        echo "\t" . $this->Html->meta(['name' => 'author', 'content' => 'Chris Vogt']) . "\n";
-        echo "\t" . $this->Html->meta(['name' => 'robots', 'content' => 'index, follow']) . "\n";
-        echo "\t" . $this->Html->meta(['property' => 'og:title', 'content' => 'stats.chrisvogt.me']) . "\n";
-        echo "\t" . $this->Html->meta(['property' => 'og:image', 'content' => $this->Html->Url('/img/screenshot.jpg', true)]) . "\n";
-        echo "\t" . $this->Html->meta(['property' => 'og:description', 'content' => $title_for_layout]) . "\n";
-        echo "\t" . $this->Html->meta(['property' => 'og:author', 'content' => 'Chris Vogt']) . "\n";
-        echo "\t" . $this->Html->meta(['name' => 'twitter:card', 'content' => 'summary_large_image']) . "\n";
-        echo "\t" . $this->Html->meta(['name' => 'twitter:site', 'content' => 'http://stats.chrisvogt.me']) . "\n";
-        echo "\t" . $this->Html->meta(['name' => 'twitter:creator', 'content' => '@c1v0']) . "\n";
-        echo "\t" . $this->Html->meta(['name' => 'twitter:title', 'content' => 'stats.chrisvogt.me']) . "\n";
-        echo "\t" . $this->Html->meta(['name' => 'twitter:description', 'content' => $title_for_layout]) . "\n";
-        echo "\t" . $this->Html->meta(['name' => 'twitter:image', 'content' => $this->Html->Url('/img/screenshot.jpg', true)]) . "\n";
-        echo "\t" . $this->Html->meta(['name' => 'theme-color', 'content' => '#5D5096']) . "\n";
-    ?>
+<?php
+  echo "\t" . $this->Html->meta(['name' => 'description', 'content' => $title_for_layout]) . "\n";
+  echo "\t" . $this->Html->meta(['name' => 'author', 'content' => 'Chris Vogt']) . "\n";
+  echo "\t" . $this->Html->meta(['name' => 'robots', 'content' => 'index, follow']) . "\n";
+  echo "\t" . $this->Html->meta(['property' => 'og:title', 'content' => 'stats.chrisvogt.me']) . "\n";
+  echo "\t" . $this->Html->meta(['property' => 'og:image', 'content' => $this->Html->Url('/img/screenshot.jpg', true)]) . "\n";
+  echo "\t" . $this->Html->meta(['property' => 'og:description', 'content' => $title_for_layout]) . "\n";
+  echo "\t" . $this->Html->meta(['property' => 'og:author', 'content' => 'Chris Vogt']) . "\n";
+  echo "\t" . $this->Html->meta(['name' => 'twitter:card', 'content' => 'summary_large_image']) . "\n";
+  echo "\t" . $this->Html->meta(['name' => 'twitter:site', 'content' => 'http://stats.chrisvogt.me']) . "\n";
+  echo "\t" . $this->Html->meta(['name' => 'twitter:creator', 'content' => '@c1v0']) . "\n";
+  echo "\t" . $this->Html->meta(['name' => 'twitter:title', 'content' => 'stats.chrisvogt.me']) . "\n";
+  echo "\t" . $this->Html->meta(['name' => 'twitter:description', 'content' => $title_for_layout]) . "\n";
+  echo "\t" . $this->Html->meta(['name' => 'twitter:image', 'content' => $this->Html->Url('/img/screenshot.jpg', true)]) . "\n";
+  echo "\t" . $this->Html->meta(['name' => 'theme-color', 'content' => '#5D5096']) . "\n";
+?>
 
         <link rel="shortcut icon" href="https://cdn.rawgit.com/chrisvogt/chrisvogt.me/master/img/favicon.ico">
         <link rel="apple-touch-icon" href="https://cdn.rawgit.com/chrisvogt/chrisvogt.me/master/img/favicon-57.png">
@@ -55,19 +56,19 @@ $cakeDescription = __d('cake_dev', 'stats.chrisvogt.me');
         <link rel="apple-touch-icon" sizes="120x120" href="https://cdn.rawgit.com/chrisvogt/chrisvogt.me/master/img/favicon-120.png">
         <link rel="apple-touch-icon" sizes="152x152" href="https://cdn.rawgit.com/chrisvogt/chrisvogt.me/master/img/favicon-152.png">
 
-	<?php
-		echo $this->Html->meta('icon');
+        <?php
+      	echo $this->Html->meta('icon');
 
+        $css_app = Configure::read('debug') > 0 ? '/fos/css/app' : 'app.min';
         echo $this->Html->css([
-            // 'app.min',       # Production
-            '/fos/css/app',     # Development
+            $css_app,
             'font-awesome.min'
         ]);
 
-		echo $this->fetch('meta');
-		echo $this->fetch('css');
-		echo $this->fetch('script');
-    ?>
+      	echo $this->fetch('meta');
+      	echo $this->fetch('css');
+      	echo $this->fetch('script');
+        ?>
         <script type="text/javascript">
           WebFontConfig = {
             google: { families: [ 'Quicksand::latin', 'Merriweather:300,300italic:latin' ] }
