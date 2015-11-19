@@ -1,24 +1,22 @@
 <?php
 /**
- * Template: Stats dashboard
+ * Template: dashboard (home)
+ *
+ * @author Chris Vogt <mail@chrisvogt.me>
  */ ?>
-    <div class="row">
-    	<div class="col-sm-12">
-    		<p class="lead"><i class="fa fa-twitter"></i><a href="https://twitter.com/c1v0" title="Chris Vogt on Twitter">@c1v0</a> has logged <strong><?php echo $totalTimeInWords; ?></strong> working on open source projects over the last 30 days.</p>
-    	</div>
+  <div class="row">
+    <div class="medium-6 columns">
+        <h2>My public coding habits</h2>
+        <p>May '15 I began using <a href="https://wakatime.com" title="WakaTime - time tracking for developers" rel="nofollow">WakaTime</a>, a time tracking service for developers, to track my time spent coding for open source projects. The charts on this page are generated using data from the WakaTime API (<a href="https://github.com/chrisvogt/stats/blob/master/app/Controller/Component/WakaTimeComponent.php" title="View code on GitHub"><i class="fa fa-code"></i></a>), and provide metrics I use to challenge myself with quantitative performance goals. (Tools like <a href="http://jshint.com/" title="JSHint" rel="nofollow">JSHint</a> and <a href="https://github.com/squizlabs/PHP_CodeSniffer" title="PHP_CodeSniffer on GitHub" rel="nofollow">CodeSniffer</a> help enforce qualitative standards.)</p>
     </div>
-
-    <div class="row">
-    	<div id="chart7Days" class="col-md-12 chart"></div>
+    <div class="medium-6 columns">
+      <div id="chartLanguages" class="chart"></div>
     </div>
+  </div>
 
-    <div class="row">
-    	<div id="chartLanguages" class="col-md-12 chart"></div>
-    </div>
+<?php $chart->printScripts(); ?>
 
-    <?php $chart->printScripts(); ?>
-
-    <script type="text/javascript">
-        <?php echo $chart->render("chart");?>
-        <?php echo $langChart->render("chart");?>
-    </script>
+<script type="text/javascript">
+    <?php echo $chart->render("chart");?>
+    <?php echo $langChart->render("chart");?>
+</script>

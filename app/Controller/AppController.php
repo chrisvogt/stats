@@ -61,7 +61,6 @@ class AppController extends Controller {
      */
 	public function beforeFilter() {
 		Parent::beforeFilter();
-		$this->layout = 'offcanvas';
 	}
 
 }
