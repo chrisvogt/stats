@@ -70,7 +70,7 @@ class WakaChartComponent extends Component {
 /**
  * Hours logged by day chart
  *
- * Generates an hours logged by day chart for the last 7 days.
+ * Generates an hours logged by day chart for the last 30 days.
  *
  * @param array $data
  * @return Ghunti\HighchartsPHP\Highchart
@@ -82,16 +82,19 @@ class WakaChartComponent extends Component {
 			'type' 		=> 'areaspline',
 		);
 		$chart->credits->enabled = false;
-		$chart->title = array('text' => 'Time contributed');
+		$chart->title = array(
+            'text' => 'Time contributed to open source projects, last 30 days',
+            'style' => ["fontFamily" => "Quicksand, sanf-serif"]
+        );
 		$chart->chart->backgroundColor = null;
 		$chart->title->style->color = "#fefefe";
-		$chart->chart->style = ["fontFamily" => "Open Sans, sans-serif"];
-		$chart->subtitle->text = 'Last 7 days';
+		$chart->chart->style = ["fontFamily" => "Merriweather, serif"];
+		$chart->subtitle->text = 'Last 30 days';
 		$chart->xAxis->categories = $this->_extractTitles($data);
-		$chart->xAxis->labels->style->color = "#efefef";
+		$chart->xAxis->labels->style->color = "#eaeaea";
 		$chart->yAxis['min'] = 0;
 		$chart->yAxis->title->text = "Hours";
-		$chart->yAxis->title->style->color = "#fefefe";
+		$chart->yAxis->title->style->color = "#eaeaea";
 		$chart->series[0] = array(
 			'name' => 'Hours',
 			'data' => $this->_extractStats($data),
@@ -117,17 +120,21 @@ class WakaChartComponent extends Component {
 		$chart->credits->enabled = false;
 		$chart->chart->plotBackgroundColor = null;
 		$chart->chart->backgroundColor = null;
-		$chart->chart->style = ["fontFamily" => "Open Sans, sans-serif"];
-		$chart->title->text = "Languages used";
+		$chart->chart->style = ["fontFamily" => "Merriweather, serif"];
+        $chart->title = array(
+            'text' => 'Language breakdown',
+            'style' => ["fontFamily" => "Quicksand, sanf-serif"]
+        );
 		$chart->title->style->color = "#fefefe";
-		$chart->subtitle->text = 'Languages used over the last 7 days';
+		$chart->subtitle->text = 'Languages used over the last 30 days';
 		$chart->tooltip->formatter = new Ghunti\HighchartsPHP\HighchartJsExpr(
 		    "function() {
 		    return '<b>'+ this.point.name +'</b>: '+ this.percentage.toFixed(1) +' %';}");
 		$chart->plotOptions->pie->allowPointSelect = 1;
 		$chart->plotOptions->pie->cursor = "pointer";
 		$chart->plotOptions->pie->dataLabels->enabled = 1;
-		$chart->plotOptions->pie->dataLabels->color = "#efefef";
+		$chart->plotOptions->pie->dataLabels->color = "#484848";
+        $chart->plotOptions->pie->dataLabels->style->textShadow = false;
 		$chart->plotOptions->pie->dataLabels->connectorColor = "#cecece";
 		$chart->plotOptions->pie->dataLabels->formatter = new Ghunti\HighchartsPHP\HighchartJsExpr(
 		    "function() {

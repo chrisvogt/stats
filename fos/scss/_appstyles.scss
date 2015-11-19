@@ -1,0 +1,179 @@
+/**
+███████╗████████╗ █████╗ ████████╗███████╗
+██╔════╝╚══██╔══╝██╔══██╗╚══██╔══╝██╔════╝
+███████╗   ██║   ███████║   ██║   ███████╗
+╚════██║   ██║   ██╔══██║   ██║   ╚════██║
+███████║   ██║   ██║  ██║   ██║   ███████║
+╚══════╝   ╚═╝   ╚═╝  ╚═╝   ╚═╝   ╚══════╝
+                        by CHRISVOGT.me */
+
+/**
+ * Style Guide
+ */
+$quartzite-purple: #4A3E62;
+$quartzite-blue: #18ffff;
+$quartzite-green: #b2ff59;
+
+/* ------------------------------------ */
+
+/**
+ * Structure
+ */
+ul.title-area {
+    font-family: Quicksand, sanf-serif;
+    text-transform: uppercase;
+}
+.fullWidth {
+   width: 100%;
+   margin-left: auto;
+   margin-right: auto;
+   max-width: initial;
+}
+.page-header {
+    background: none;
+    border: none;
+    margin-bottom: 2em;
+}
+footer {
+    background: $quartzite-purple;
+    p,
+    ul {
+        line-height: 32px;
+        margin-bottom: 0;
+        color: #aeaeae;
+    }
+    .inline-list {
+        margin: 0;
+    }
+}
+
+
+/**
+ * Masthead
+ */
+#header-chart {
+    background: url('../../img/bg-delaunay.png');
+    position: relative;
+    overflow: hidden;
+}
+#header-chart .chart {
+    z-index: 9;
+    position: relative;
+}
+#ticker {
+    background: #ffffff; /* Old browsers */
+    background: -moz-linear-gradient(top, #ffffff 0%, #e5e5e5 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #ffffff 0%,#e5e5e5 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #ffffff 0%,#e5e5e5 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e5e5e5',GradientType=0 ); /* IE6-9 */
+    p {
+        margin: 24px 0;
+        color: #282828;
+    }
+    a:active {
+        color: $quartzite-blue!important;
+    }
+}
+
+/**
+ * Typography
+ */
+body {
+    font-family: 'Merriweather', serif;
+    font-size: 1.286em;
+    color: #484848;
+}
+a {
+    text-decoration: none;
+}
+h2 {
+    margin: 24px 0;
+}
+footer i.fa-heart {
+    color: #990000;
+}
+footer i.fa-twitter {
+    color: #55acee;
+}
+.top-bar .fa {
+    color: #eaeaea;
+}
+// -- headlines
+h1 {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 3.4em;
+    color: #fff;
+    line-height: 28px;
+    margin-top: 16px;
+    margin-bottom: 0px;
+}
+h2 {
+    font-family: 'Merriweather', serif;
+    color: #212121;
+    font-size: 36px;
+    line-height: 34px;
+}
+h3 {
+    font-family: 'Merriweather', serif;
+    font-size: 24px;
+    color: #fff;
+    line-height: 10px;
+    text-align: center;
+    font-weight: 500;
+    padding-bottom: 10px;
+}
+h4 {
+    font-family: 'Quicksand', sans-serif;
+    color: #000;
+    font-size: 28px;
+    padding-top: 5px;
+}
+
+/**
+ * Elements
+ */
+.top-bar,
+.contain-to-grid,
+.top-bar-section li:not(.has-form) a:not(.button) {
+    background: $quartzite-purple;
+}
+
+/**
+ * Social
+ */
+#social {
+    background-image: url('../../img/bg-delaunay.png');
+    text-align: center;
+    padding: 0;
+    a {
+        color: #cecece;
+
+    }
+    a:hover {
+        color: #fff;
+    }
+}
+#links .inline-list {
+    margin-bottom: 0;
+    margin: 96px auto;
+}
+#links li {
+    float: none;
+    display: inline-block;
+    font-size: 1.875rem;
+    margin: 0 14px;
+}
+@media only screen and (min-width: 64.063em) {
+    #links li {
+        margin: 0 42px;
+        font-size: 2.675rem;
+    }
+}
+#social a,
+.button {
+    -webkit-transition: all .6s ease-in;
+    -moz-transition: all .6s ease-in;
+    -o-transition: all .6s ease-in;
+    transition: all .6s ease-in;
+ }
+
