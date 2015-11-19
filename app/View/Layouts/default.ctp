@@ -59,11 +59,11 @@ $cakeDescription = __d('cake_dev', 'stats.chrisvogt.me');
         <?php
       	echo $this->Html->meta('icon');
 
-            echo $this->Html->css([
-                // 'app.min',       # Production
-                '/fos/css/app',     # Development
-                'font-awesome.min'
-            ]);
+        $css_app = Configure::read('debug') > 0 ? '/fos/css/app' : 'app.min';
+        echo $this->Html->css([
+            $css_app,
+            'font-awesome.min'
+        ]);
 
       	echo $this->fetch('meta');
       	echo $this->fetch('css');
