@@ -6891,8 +6891,13 @@ h4 {
 #links li {
   float: none;
   display: inline-block;
-  font-size: 1.875rem;
+  font-size: 1.25rem;
   margin: 0 14px; }
+
+@media only screen and (min-width: 40.063em) and (max-width: 64em) {
+  #links li {
+    margin: 0 24px;
+    font-size: 2rem; } }
 
 @media only screen and (min-width: 64.063em) {
   #links li {
