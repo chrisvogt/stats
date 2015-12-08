@@ -13,7 +13,9 @@
     <section class="top-bar-section">
       <ul class="right">
         <li class="divider"></li>
-        <li><a href="https://resume.chrisvogt.me" title="Chris Vogt's resume on StackOverflow Careers"><i class="fa fa-list-alt"></i> Résumé</a></li>
+        <li class="active"><a href="http://stats.chrisvogt.me" title="Coding stats, last 30 days" disabled><i class="fa fa-area-chart"></i> Stats</a></li>
+        <li class="divider"></li>
+        <li><a href="https://resume.chrisvogt.me" title="My résumé on StackOverflow Careers"><i class="fa fa-briefcase"></i> Résumé</a></li>
         <li class="divider"></li>
       </ul>
       <ul class="left">
