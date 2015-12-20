@@ -6773,21 +6773,31 @@ ul.title-area {
   border: none;
   margin-bottom: 2em; }
 
-footer {
-  background: #4A3E62; }
-  footer p,
-  footer ul {
-    line-height: 32px;
-    margin-bottom: 0;
-    color: #aeaeae; }
-  footer .inline-list {
-    margin: 0; }
+footer p,
+footer ul {
+  line-height: 32px;
+  margin-bottom: 0;
+  color: #aeaeae; }
+
+footer .inline-list {
+  margin: 0; }
 
 /**
  * Masthead
  */
+.top-bar {
+  background: none; }
+  .top-bar ul li {
+    background: none; }
+  .top-bar a {
+    background: none; }
+
+.top-bar-section li:not(.has-form) a:not(.button) {
+  background: none;
+  transition: background 1s ease; }
+
 #header-chart {
-  background: url("../../img/bg-delaunay.png");
+  background: #FAFAFA;
   position: relative;
   overflow: hidden; }
 
@@ -6796,16 +6806,7 @@ footer {
   position: relative; }
 
 #ticker {
-  background: #ffffff;
-  /* Old browsers */
-  background: -moz-linear-gradient(top, #ffffff 0%, #e5e5e5 100%);
-  /* FF3.6-15 */
-  background: -webkit-linear-gradient(top, #ffffff 0%, #e5e5e5 100%);
-  /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to bottom, #ffffff 0%, #e5e5e5 100%);
-  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e5e5e5',GradientType=0 );
-  /* IE6-9 */ }
+  background: #eceff1; }
   #ticker p {
     margin: 24px 0;
     color: #282828; }
@@ -6865,18 +6866,47 @@ h4 {
   padding-top: 5px; }
 
 /**
- * Elements
+ * Quartzite gradient
  */
-.top-bar,
+#social {
+  background: #4527a0;
+  background: -moz-linear-gradient(45deg, #4527a0 0%, #711e9b 100%);
+  background: -webkit-gradient(left bottom, right top, color-stop(0%, #4527a0), color-stop(100%, #711e9b));
+  background: -webkit-linear-gradient(45deg, #4527a0 0%, #711e9b 100%);
+  background: -o-linear-gradient(45deg, #4527a0 0%, #711e9b 100%);
+  background: -ms-linear-gradient(45deg, #4527a0 0%, #711e9b 100%);
+  background: linear-gradient(45deg, #4527a0 0%, #711e9b 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4527a0', endColorstr='#711e9b', GradientType=1 ); }
+
+/* reversed */
 .contain-to-grid,
-.top-bar-section li:not(.has-form) a:not(.button) {
-  background: #4A3E62; }
+footer {
+  background: #0a2364;
+  background: -moz-linear-gradient(-45deg, #0a2364 0%, #711e9b 100%);
+  background: -webkit-gradient(left top, right bottom, color-stop(0%, #0a2364), color-stop(100%, #711e9b));
+  background: -webkit-linear-gradient(-45deg, #0a2364 0%, #711e9b 100%);
+  background: -o-linear-gradient(-45deg, #0a2364 0%, #711e9b 100%);
+  background: -ms-linear-gradient(-45deg, #0a2364 0%, #711e9b 100%);
+  background: linear-gradient(135deg, #0a2364 0%, #711e9b 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0a2364', endColorstr='#711e9b', GradientType=1 ); }
+
+/**
+ * Promotional pane
+ */
+#promote {
+  background: #eceff1;
+  padding: 10px 0; }
+  #promote p {
+    padding: 24px 0;
+    margin: 0; }
+  #promote a {
+    margin: 10px auto 0; }
 
 /**
  * Social
  */
 #social {
-  background-image: url("../../img/bg-delaunay.png");
+  transition: background 1s ease;
   text-align: center;
   padding: 0; }
   #social a {

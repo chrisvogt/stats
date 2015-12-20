@@ -77,32 +77,41 @@ class WakaChartComponent extends Component {
  */
 	public function totalHoursChart($data) {
 		$chart = new Ghunti\HighchartsPHP\Highchart();
+
 		$chart->chart = array(
 			'renderTo' 	=> 'chart7Days',
 			'type' 		=> 'areaspline',
+            'backgroundColor' => null
 		);
+        $chart->chart->style = ["fontFamily" => "Merriweather, serif"];
 		$chart->credits->enabled = false;
 		$chart->title = array(
-            'text' => 'Time contributed to open source projects, last 30 days',
-            'style' => ["fontFamily" => "Quicksand, sanf-serif"]
+            'text' => 'Time spent coding, last 30 days',
+            'style' => [
+                'fontFamily' => 'Quicksand, sanf-serif',
+                'color' => '#4527A0'
+            ]
         );
-		$chart->chart->backgroundColor = null;
-		$chart->title->style->color = "#fefefe";
-		$chart->chart->style = ["fontFamily" => "Merriweather, serif"];
-		$chart->subtitle->text = 'Last 30 days';
+        $chart->subtitle->text = 'Open source contributions';
+
+        $chart->plotOptions->areaspline->fillColor = '#008CBA';
+
 		$chart->xAxis->categories = $this->_extractTitles($data);
-		$chart->xAxis->labels->style->color = "#eaeaea";
+        $chart->xAxis->labels->style->color = "#546E7A";
+
 		$chart->yAxis['min'] = 0;
-		$chart->yAxis->title->text = "Hours";
-		$chart->yAxis->title->style->color = "#eaeaea";
-		$chart->series[0] = array(
+        $chart->yAxis->title->text = "Hours";
+		$chart->yAxis->title->style->color = "#546E7A";
+
+        $chart->series[0] = array(
 			'name' => 'Hours',
 			'data' => $this->_extractStats($data),
 	    	'tooltip' => array(
         		'valueDecimals' => 1
     		)
 		);
-		$chart->legend->enabled = false;
+
+        $chart->legend->enabled = false;
 
 		return $chart;
 	}

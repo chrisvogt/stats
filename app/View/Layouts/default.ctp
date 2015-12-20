@@ -24,12 +24,12 @@ $cakeDescription = __d('cake_dev', 'stats.chrisvogt.me');
         <?php echo $this->Html->charset() . "\n"; ?>
         <?php echo $this->Html->meta(['name' => 'viewport', 'content' => 'width=device-width, initial-scale=1.0']) . "\n";?>
 <!--
-    ____ _  _ ____ _ ____ _  _ ____ ____ ___  _  _ ____
-    |    |__| |__/ | [__  |  | |  | | __  |   |\/| |___
-    |___ |  | |  \ | ___]  \/  |__| |__]  |  .|  | |___
-                        an open source project by @c1v0
+    ┬ ┬┌─┐┬ ┬┌─┐┬ ┬┌─┐┬─┐   ┬┌┐┌┌─┐┌─┐
+    ││││ │││││  ├─┤├─┤├┬┘───││││├┤ │ │
+    └┴┘└─┘└┴┘└─┘┴ ┴┴ ┴┴└─   ┴┘└┘└  └─┘
+                              by @c1v0
 
-    https://github.com/chrisvogt/stats
+    https://github.com/chrisvogt/wowchar-info
 -->
 	<title><?php echo $title_for_layout; ?> — <?php echo $cakeDescription; ?></title>
 
