@@ -13,6 +13,8 @@
 $quartzite-purple: #4A3E62;
 $quartzite-blue: #18ffff;
 $quartzite-green: #b2ff59;
+$accent-grey: #eceff1;
+$base-grey: #fefefe;
 
 /* ------------------------------------ */
 
@@ -35,7 +37,6 @@ ul.title-area {
     margin-bottom: 2em;
 }
 footer {
-    background: $quartzite-purple;
     p,
     ul {
         line-height: 32px;
@@ -51,8 +52,21 @@ footer {
 /**
  * Masthead
  */
+.top-bar {
+    background: none;
+  ul li {
+    background: none;
+  }
+  a {
+    background: none;
+  }
+}
+.top-bar-section li:not(.has-form) a:not(.button) {
+  background: none;
+  transition: background 1s ease;
+}
 #header-chart {
-    background: url('../../img/bg-delaunay.png');
+    background: #FAFAFA;
     position: relative;
     overflow: hidden;
 }
@@ -61,11 +75,7 @@ footer {
     position: relative;
 }
 #ticker {
-    background: #ffffff; /* Old browsers */
-    background: -moz-linear-gradient(top, #ffffff 0%, #e5e5e5 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(top, #ffffff 0%,#e5e5e5 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to bottom, #ffffff 0%,#e5e5e5 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e5e5e5',GradientType=0 ); /* IE6-9 */
+    background: $accent-grey;
     p {
         margin: 24px 0;
         color: #282828;
@@ -130,19 +140,55 @@ h4 {
 }
 
 /**
- * Elements
+ * Quartzite gradient
  */
-.top-bar,
+#social {
+  background: rgba(69,39,160,1);
+  background: -moz-linear-gradient(45deg, rgba(69,39,160,1) 0%, rgba(113,30,155,1) 100%);
+  background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(69,39,160,1)), color-stop(100%, rgba(113,30,155,1)));
+  background: -webkit-linear-gradient(45deg, rgba(69,39,160,1) 0%, rgba(113,30,155,1) 100%);
+  background: -o-linear-gradient(45deg, rgba(69,39,160,1) 0%, rgba(113,30,155,1) 100%);
+  background: -ms-linear-gradient(45deg, rgba(69,39,160,1) 0%, rgba(113,30,155,1) 100%);
+  background: linear-gradient(45deg, rgba(69,39,160,1) 0%, rgba(113,30,155,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4527a0', endColorstr='#711e9b', GradientType=1 );
+}
+
+/* reversed */
 .contain-to-grid,
-.top-bar-section li:not(.has-form) a:not(.button) {
-    background: $quartzite-purple;
+footer {
+  background: rgba(10,35,100,1);
+  background: -moz-linear-gradient(-45deg, rgba(10,35,100,1) 0%, rgba(113,30,155,1) 100%);
+  background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(10,35,100,1)), color-stop(100%, rgba(113,30,155,1)));
+  background: -webkit-linear-gradient(-45deg, rgba(10,35,100,1) 0%, rgba(113,30,155,1) 100%);
+  background: -o-linear-gradient(-45deg, rgba(10,35,100,1) 0%, rgba(113,30,155,1) 100%);
+  background: -ms-linear-gradient(-45deg, rgba(10,35,100,1) 0%, rgba(113,30,155,1) 100%);
+  background: linear-gradient(135deg, rgba(10,35,100,1) 0%, rgba(113,30,155,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0a2364', endColorstr='#711e9b', GradientType=1 );
+}
+
+/**
+ * Promotional pane
+ */
+#promote {
+    background: $accent-grey;
+    padding: 10px 0;
+    text-align: center;
+    @media only screen and (min-width: 40.063em) {
+        p {
+            text-align: left;
+            padding: 24px 0; margin: 0;
+        }
+        a {
+            margin: 10px auto 0;
+        }
+    }
 }
 
 /**
  * Social
  */
 #social {
-    background-image: url('../../img/bg-delaunay.png');
+    transition: background 1s ease;
     text-align: center;
     padding: 0;
     a {

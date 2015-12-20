@@ -24,12 +24,12 @@ $cakeDescription = __d('cake_dev', 'stats.chrisvogt.me');
         <?php echo $this->Html->charset() . "\n"; ?>
         <?php echo $this->Html->meta(['name' => 'viewport', 'content' => 'width=device-width, initial-scale=1.0']) . "\n";?>
 <!--
-    ____ _  _ ____ _ ____ _  _ ____ ____ ___  _  _ ____
-    |    |__| |__/ | [__  |  | |  | | __  |   |\/| |___
-    |___ |  | |  \ | ___]  \/  |__| |__]  |  .|  | |___
-                        an open source project by @c1v0
+    ┬ ┬┌─┐┬ ┬┌─┐┬ ┬┌─┐┬─┐   ┬┌┐┌┌─┐┌─┐
+    ││││ │││││  ├─┤├─┤├┬┘───││││├┤ │ │
+    └┴┘└─┘└┴┘└─┘┴ ┴┴ ┴┴└─   ┴┘└┘└  └─┘
+                              by @c1v0
 
-    https://github.com/chrisvogt/stats
+    https://github.com/chrisvogt/wowchar-info
 -->
 	<title><?php echo $title_for_layout; ?> — <?php echo $cakeDescription; ?></title>
 
@@ -38,7 +38,7 @@ $cakeDescription = __d('cake_dev', 'stats.chrisvogt.me');
   echo "\t" . $this->Html->meta(['name' => 'author', 'content' => 'Chris Vogt']) . "\n";
   echo "\t" . $this->Html->meta(['name' => 'robots', 'content' => 'index, follow']) . "\n";
   echo "\t" . $this->Html->meta(['property' => 'og:title', 'content' => 'stats.chrisvogt.me']) . "\n";
-  echo "\t" . $this->Html->meta(['property' => 'og:image', 'content' => $this->Html->Url('/img/screenshot.jpg', true)]) . "\n";
+  echo "\t" . $this->Html->meta(['property' => 'og:image', 'content' => $this->Html->Url('/img/screenshot.png', true)]) . "\n";
   echo "\t" . $this->Html->meta(['property' => 'og:description', 'content' => $title_for_layout]) . "\n";
   echo "\t" . $this->Html->meta(['property' => 'og:author', 'content' => 'Chris Vogt']) . "\n";
   echo "\t" . $this->Html->meta(['name' => 'twitter:card', 'content' => 'summary_large_image']) . "\n";
@@ -46,7 +46,7 @@ $cakeDescription = __d('cake_dev', 'stats.chrisvogt.me');
   echo "\t" . $this->Html->meta(['name' => 'twitter:creator', 'content' => '@c1v0']) . "\n";
   echo "\t" . $this->Html->meta(['name' => 'twitter:title', 'content' => 'stats.chrisvogt.me']) . "\n";
   echo "\t" . $this->Html->meta(['name' => 'twitter:description', 'content' => $title_for_layout]) . "\n";
-  echo "\t" . $this->Html->meta(['name' => 'twitter:image', 'content' => $this->Html->Url('/img/screenshot.jpg', true)]) . "\n";
+  echo "\t" . $this->Html->meta(['name' => 'twitter:image', 'content' => $this->Html->Url('/img/screenshot.png', true)]) . "\n";
   echo "\t" . $this->Html->meta(['name' => 'theme-color', 'content' => '#5D5096']) . "\n";
 ?>
 
@@ -64,6 +64,10 @@ $cakeDescription = __d('cake_dev', 'stats.chrisvogt.me');
             $css_app,
             'font-awesome.min'
         ]);
+
+        $this->Html->script([
+            'foundation.min.js',
+        ], ['block' => 'scriptBottom']);
 
       	echo $this->fetch('meta');
       	echo $this->fetch('css');
@@ -137,17 +141,16 @@ $cakeDescription = __d('cake_dev', 'stats.chrisvogt.me');
         <div class="large-6 columns">
           <p><i class="fa fa-code"></i> with <i class="fa fa-heart"></i> by <i class="fa fa-twitter"></i> <a href="https://twitter.com/c1v0" title="@c1v0 on Twitter">@c1v0</a></p>
         </div>
-        <div class="large-6 columns">
-          <!--
+        <div class="large-6 columns"><!--
           <ul class="inline-list right">
-            <li><a href="#">About</a></li>
-            <li><a href="#">Terms of Use</a></li>
-            <li><a href="#">Privacy Policy</a></li>
-          </ul>
-          -->
+            <li><a href="https://www.chrisvogt.me" title="Home">Home</a></li>
+            <li><a href="https://resume.chrisvogt.me" title="Chris Vogt's résumé">Résumé</a></li>
+          </ul> -->
         </div>
       </div>
     </footer>
+    <?php echo $this->fetch('scriptBottom'); ?>
+    <?php echo $this->Js->writeBuffer(); ?>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -159,7 +162,10 @@ $cakeDescription = __d('cake_dev', 'stats.chrisvogt.me');
       ga('linker:autoLink', ['www.chrisvogt.me'] );
       ga('send', 'pageview');
     </script>
-    <?php echo $this->fetch('scriptBottom'); ?>
-    <?php echo $this->Js->writeBuffer(); ?>
+    <script>
+      $(function() {
+        $(document).foundation();
+      });
+    </script>
 </body>
 </html>

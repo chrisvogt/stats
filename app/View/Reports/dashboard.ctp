@@ -13,6 +13,16 @@
       <div id="chartLanguages" class="chart"></div>
     </div>
   </div>
+  <div id="promote">
+        <div class="row">
+            <div class="medium-8 columns">
+                <p>Review my coding contributions on GitHub.</p>
+            </div>
+            <div class="medium-4 columns">
+                <a href="https://github.com/chrisvogt?tab=contributions&amp;period=monthly" title="Chris Vogt on GitHub" class="button expand"><i class="fa fa-github"></i> View on GitHub</a>
+            </div>
+        </div>
+  </div>
 
 <?php $chart->printScripts(); ?>
 

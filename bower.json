@@ -1,6 +1,6 @@
 {
   "name": "stats.chrisvogt.me",
-  "version": "0.8.0",
+  "version": "0.8.2",
   "homepage": "http://stats.chrisvogt.me",
   "description": "Reports @c1v0's recent coding habits using the WakaTime API.",
   "main": "webroot/index.php",

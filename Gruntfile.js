@@ -1,9 +1,22 @@
 'use strict';
 
 module.exports = function(grunt) {
-
     require('load-grunt-tasks')(grunt);
 
+    /**
+     * Foundation JS asset path.
+     */
+    var fdnJsPath = 'fos/components/foundation/js/foundation/';
+
+    /**
+     * List of Foundation JS assets to include.
+     */
+    var jsFoundation = [
+        fdnJsPath + 'foundation.js',
+        fdnJsPath + 'foundation.dropdown.js',
+        fdnJsPath + 'foundation.reveal.js',
+        fdnJsPath + 'foundation.topbar.js'
+    ];
 
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
@@ -92,10 +105,14 @@ module.exports = function(grunt) {
         },
 
         uglify: {
-            options: {
-                preserveComments: 'some',
-                mangle: false
+          options: {
+            sourceMap: true
+          },
+          dist: {
+            files: {
+              '<%= dist %>/js/foundation.min.js': [jsFoundation]
             }
+          }
         },
 
         useminPrepare: {

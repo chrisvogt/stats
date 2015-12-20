@@ -2,21 +2,18 @@
 /**
  * Template: Page navbar
  */ ?>
-<div class="contain-to-grid sticky">
+<div class="contain-to-grid">
   <nav class="top-bar" data-topbar role="navigation" data-options="sticky_on:[medium,large];scrolltop:false;">
     <ul class="title-area">
       <li class="name">
-        <h1><a href="/"><strong>stats.</strong>chrisvogt.me</a></h1>
+        <h1><strong>stats.</strong>chrisvogt.me</h1>
       </li>
       <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
     </ul>
     <section class="top-bar-section">
       <ul class="right">
-        <li class="divider"></li>
         <li class="active"><a href="http://stats.chrisvogt.me" title="Coding stats, last 30 days" disabled><i class="fa fa-area-chart"></i> Stats</a></li>
-        <li class="divider"></li>
         <li><a href="https://resume.chrisvogt.me" title="My résumé on StackOverflow Careers"><i class="fa fa-briefcase"></i> Résumé</a></li>
-        <li class="divider"></li>
       </ul>
       <ul class="left">
         <li><a href="https://www.chrisvogt.me"><i class="fa fa-home"></i> Home</a></li>

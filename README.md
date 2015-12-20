@@ -3,7 +3,7 @@
 [![GitHub release](https://img.shields.io/github/release/chrisvogt/stats.svg?style=flat-square)](https://github.com/chrisvogt/stats/releases)
 [![GitHub license](https://img.shields.io/github/license/chrisvogt/stats.svg?style=flat-square)](https://github.com/chrisvogt/stats/blob/master/LICENSE)
 
-A dashboard page that reports my public coding habits over the last _n_ days using data from WakaTime, a time tracking service for developers that tracks time spent editing files.
+Reports my public coding habits over the last _n_ days using data fetched from [WakaTime](https://wakatime.com), a time tracking service for developers.
 
 View it live @ [stats.chrisvogt.me](http://stats.chrisvogt.me).
 
@@ -17,7 +17,11 @@ View it live @ [stats.chrisvogt.me](http://stats.chrisvogt.me).
 
     npm install
 
-**3.** Use grunt to preview or build.
+**3.** Configure the `.env` file.
+
+    Give `DEBUG` a value greater than 0.
+
+**4.** Use grunt to preview or build.
 
     grunt  # 'watches' for changes to the scss/js
 
@@ -25,7 +29,7 @@ View it live @ [stats.chrisvogt.me](http://stats.chrisvogt.me).
 
 ### Screenshot
 
-[![Chris Vogt's open source stats](webroot/img/screenshot.jpg)](http://stats.chrisvogt.me)
+[![C1V0's stats](webroot/img/screenshot.png)](http://stats.chrisvogt.me)
 
 ### License
 
