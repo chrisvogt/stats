@@ -38,7 +38,7 @@ $cakeDescription = __d('cake_dev', 'stats.chrisvogt.me');
   echo "\t" . $this->Html->meta(['name' => 'author', 'content' => 'Chris Vogt']) . "\n";
   echo "\t" . $this->Html->meta(['name' => 'robots', 'content' => 'index, follow']) . "\n";
   echo "\t" . $this->Html->meta(['property' => 'og:title', 'content' => 'stats.chrisvogt.me']) . "\n";
-  echo "\t" . $this->Html->meta(['property' => 'og:image', 'content' => $this->Html->Url('/img/screenshot.jpg', true)]) . "\n";
+  echo "\t" . $this->Html->meta(['property' => 'og:image', 'content' => $this->Html->Url('/img/screenshot.png', true)]) . "\n";
   echo "\t" . $this->Html->meta(['property' => 'og:description', 'content' => $title_for_layout]) . "\n";
   echo "\t" . $this->Html->meta(['property' => 'og:author', 'content' => 'Chris Vogt']) . "\n";
   echo "\t" . $this->Html->meta(['name' => 'twitter:card', 'content' => 'summary_large_image']) . "\n";
@@ -46,7 +46,7 @@ $cakeDescription = __d('cake_dev', 'stats.chrisvogt.me');
   echo "\t" . $this->Html->meta(['name' => 'twitter:creator', 'content' => '@c1v0']) . "\n";
   echo "\t" . $this->Html->meta(['name' => 'twitter:title', 'content' => 'stats.chrisvogt.me']) . "\n";
   echo "\t" . $this->Html->meta(['name' => 'twitter:description', 'content' => $title_for_layout]) . "\n";
-  echo "\t" . $this->Html->meta(['name' => 'twitter:image', 'content' => $this->Html->Url('/img/screenshot.jpg', true)]) . "\n";
+  echo "\t" . $this->Html->meta(['name' => 'twitter:image', 'content' => $this->Html->Url('/img/screenshot.png', true)]) . "\n";
   echo "\t" . $this->Html->meta(['name' => 'theme-color', 'content' => '#5D5096']) . "\n";
 ?>
 
