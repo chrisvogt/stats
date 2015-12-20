@@ -2,7 +2,7 @@
   "name": "stats.chrisvogt.me",
   "license": "MIT",
   "repository": "chrisvogt/stats",
-  "version": "0.8.0",
+  "version": "0.8.2",
   "dependencies": {},
   "devDependencies": {
     "load-grunt-tasks": "~3.3.0",
