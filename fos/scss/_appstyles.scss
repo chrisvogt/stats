@@ -13,10 +13,17 @@
 $quartzite-purple: #4A3E62;
 $quartzite-blue: #18ffff;
 $quartzite-green: #b2ff59;
-$accent-grey: #eceff1;
-$base-grey: #fefefe;
+
+$dark-grey: #080808;
+
+$grey-50: #fafafa;
+$blue-grey-50: #eceff1;
 
 /* ------------------------------------ */
+
+body {
+    background: $blue-grey-50;
+}
 
 /**
  * Structure
@@ -66,7 +73,7 @@ footer {
   transition: background 1s ease;
 }
 #header-chart {
-    background: #FAFAFA;
+    background: $dark-grey;
     position: relative;
     overflow: hidden;
 }
@@ -75,7 +82,7 @@ footer {
     position: relative;
 }
 #ticker {
-    background: $accent-grey;
+    background: $grey-50;
     p {
         margin: 24px 0;
         color: #282828;
@@ -170,7 +177,7 @@ footer {
  * Promotional pane
  */
 #promote {
-    background: $accent-grey;
+    background: $grey-50;
     padding: 10px 0;
     text-align: center;
     @media only screen and (min-width: 40.063em) {
