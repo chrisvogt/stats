@@ -17,7 +17,7 @@
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
 
-$cakeDescription = __d('cake_dev', 'stats.chrisvogt.me');
+$cakeDescription = __d('cake_dev', 'Recent coding stats for Chris Vogt, front end developer in Phoenix, Arizona.');
 ?><!DOCTYPE html>
 <html>
 <head>
@@ -33,23 +33,23 @@ $cakeDescription = __d('cake_dev', 'stats.chrisvogt.me');
 ╚══════╝   ╚═╝   ╚═╝  ╚═╝   ╚═╝   ╚══════╝
                            by chrisvogt.me
 -->
-	<title><?php echo $title_for_layout; ?> — <?php echo $cakeDescription; ?></title>
+	<title><?php echo $title_for_layout; ?> — stats.chrisvogt.me</title>
 
 <?php
-  echo "\t" . $this->Html->meta(['name' => 'description', 'content' => $title_for_layout]) . "\n";
+  echo "\t" . $this->Html->meta(['name' => 'description', 'content' => $cakeDescription]) . "\n";
   echo "\t" . $this->Html->meta(['name' => 'author', 'content' => 'Chris Vogt']) . "\n";
   echo "\t" . $this->Html->meta(['name' => 'robots', 'content' => 'index, follow']) . "\n";
   echo "\t" . $this->Html->meta(['property' => 'og:title', 'content' => 'stats.chrisvogt.me']) . "\n";
   echo "\t" . $this->Html->meta(['property' => 'og:image', 'content' => $this->Html->Url('/img/screenshot.png', true)]) . "\n";
-  echo "\t" . $this->Html->meta(['property' => 'og:description', 'content' => $title_for_layout]) . "\n";
+  echo "\t" . $this->Html->meta(['property' => 'og:description', 'content' => $cakeDescription]) . "\n";
   echo "\t" . $this->Html->meta(['property' => 'og:author', 'content' => 'Chris Vogt']) . "\n";
   echo "\t" . $this->Html->meta(['name' => 'twitter:card', 'content' => 'summary_large_image']) . "\n";
   echo "\t" . $this->Html->meta(['name' => 'twitter:site', 'content' => 'http://stats.chrisvogt.me']) . "\n";
   echo "\t" . $this->Html->meta(['name' => 'twitter:creator', 'content' => '@c1v0']) . "\n";
   echo "\t" . $this->Html->meta(['name' => 'twitter:title', 'content' => 'stats.chrisvogt.me']) . "\n";
-  echo "\t" . $this->Html->meta(['name' => 'twitter:description', 'content' => $title_for_layout]) . "\n";
+  echo "\t" . $this->Html->meta(['name' => 'twitter:description', 'content' => $cakeDescription]) . "\n";
   echo "\t" . $this->Html->meta(['name' => 'twitter:image', 'content' => $this->Html->Url('/img/screenshot.png', true)]) . "\n";
-  echo "\t" . $this->Html->meta(['name' => 'theme-color', 'content' => '#5D5096']) . "\n";
+  echo "\t" . $this->Html->meta(['name' => 'theme-color', 'content' => '#0a2364']) . "\n";
 ?>
 
         <link rel="shortcut icon" href="https://cdn.rawgit.com/chrisvogt/chrisvogt.me/master/img/favicon.ico">
@@ -100,16 +100,24 @@ $cakeDescription = __d('cake_dev', 'stats.chrisvogt.me');
     </div>
     <div id="ticker" class="row text-center fullWidth">
         <p class="lead">
-            <i class="fa fa-twitter"></i>
-            <a href="https://twitter.com/c1v0" title="Chris Vogt on Twitter">@c1v0</a>
-            has logged <strong><?php echo $totalTimeInWords; ?></strong>
-            working on open source projects over the last 30 days.
+            <strong><?php echo $totalTimeInWords; ?></strong> logged working on open source projects, last 30 days.
         </p>
     </div>
 	<div id="content">
         <?php echo $this->Session->flash(); ?>
 		<?php echo $this->fetch('content'); ?>
 	</div>
+    <section id="promote">
+        <div class="row">
+            <div class="medium-8 columns">
+                <p>View my code on GitHub to learn more:</p>
+            </div>
+            <div class="medium-4 columns">
+                <a href="https://github.com/chrisvogt?tab=contributions&amp;period=monthly" title="Chris Vogt on GitHub" class="button expand hvr-float-shadow"><i class="fa fa-github"></i> <em>chrisvogt</em> on GitHub</a>
+            </div>
+        </div>
+    </section>
+
     <section id="social">
       <div class="row">
         <div class="large-12 columns">

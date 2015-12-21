@@ -92,7 +92,7 @@ class WakaChartComponent extends Component {
                 'color' => '#fafafa'
             ]
         );
-        $chart->subtitle->text = 'Open source contributions';
+        $chart->subtitle->text = 'Public projects on GitHub';
         $chart->subtitle->color = '78909C';
 
         $chart->yAxis->gridLineColor = '#37474F';
@@ -107,13 +107,28 @@ class WakaChartComponent extends Component {
 
         $chart->series[0] = array(
 			'name' => 'Hours',
-            'fillColor' => '#03A9F4',
             'lineColor' => '#b2ff59',
+            'lineWidth' => 1.5,
 			'data' => $this->_extractStats($data),
 	    	'tooltip' => array(
         		'valueDecimals' => 1
     		)
 		);
+
+        $chart->series[0]->fillColor->linearGradient->x1 = 0;
+        $chart->series[0]->fillColor->linearGradient->y1 = 0;
+        $chart->series[0]->fillColor->linearGradient->x2 = 0;
+        $chart->series[0]->fillColor->linearGradient->y2 = 1;
+        $chart->series[0]->fillColor->stops = array(
+            array(
+                0,
+                '#03A9F4'
+            ),
+            array(
+                1,
+                "rgba(33,33,33,1)"
+            )
+        );
 
         $chart->legend->enabled = false;
 
