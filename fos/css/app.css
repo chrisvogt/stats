@@ -4463,14 +4463,14 @@ th.hide-for-touch {
  * Style Guide
  */
 /* ------------------------------------ */
+/**
+ * Layout & Structure
+ */
 body {
   background: #eceff1; }
 
-/**
- * Structure
- */
 ul.title-area {
-  font-family: Quicksand, sanf-serif;
+  font-family: 'Quicksand', sanf-serif;
   text-transform: uppercase; }
 
 .fullWidth {
@@ -4483,6 +4483,9 @@ ul.title-area {
   background: none;
   border: none;
   margin-bottom: 2em; }
+
+#content {
+  padding: 32px 0; }
 
 footer p,
 footer ul {
@@ -4508,7 +4511,7 @@ footer .inline-list {
   transition: background 1s ease; }
 
 #header-chart {
-  background: #080808;
+  background: #212121;
   position: relative;
   overflow: hidden; }
 
@@ -4550,7 +4553,7 @@ footer i.fa-twitter {
 h1 {
   font-family: 'Quicksand', sans-serif;
   font-size: 3.4em;
-  color: #fff;
+  color: #ffffff;
   line-height: 28px;
   margin-top: 16px;
   margin-bottom: 0px; }
@@ -4564,7 +4567,7 @@ h2 {
 h3 {
   font-family: 'Merriweather', serif;
   font-size: 24px;
-  color: #fff;
+  color: #ffffff;
   line-height: 10px;
   text-align: center;
   font-weight: 500;
@@ -4572,7 +4575,7 @@ h3 {
 
 h4 {
   font-family: 'Quicksand', sans-serif;
-  color: #000;
+  color: #000000;
   font-size: 28px;
   padding-top: 5px; }
 
@@ -4626,7 +4629,7 @@ footer {
   #social a {
     color: #cecece; }
   #social a:hover {
-    color: #fff; }
+    color: #ffffff; }
 
 #links .inline-list {
   margin-bottom: 0;
@@ -4654,3 +4657,51 @@ footer {
   -moz-transition: all .6s ease-in;
   -o-transition: all .6s ease-in;
   transition: all .6s ease-in; }
+
+/**
+ * Plugins
+ */
+/* Float Shadow */
+.hvr-float-shadow {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px transparent;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform; }
+
+.hvr-float-shadow:before {
+  pointer-events: none;
+  position: absolute;
+  z-index: -1;
+  content: '';
+  top: 100%;
+  left: 5%;
+  height: 10px;
+  width: 90%;
+  opacity: 0;
+  background: -webkit-radial-gradient(center, ellipse, rgba(0, 0, 0, 0.35) 0%, transparent 80%);
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.35) 0%, transparent 80%);
+  /* W3C */
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform, opacity;
+  transition-property: transform, opacity; }
+
+.hvr-float-shadow:hover, .hvr-float-shadow:focus, .hvr-float-shadow:active {
+  -webkit-transform: translateY(-5px);
+  transform: translateY(-5px);
+  /* move the element up by 5px */ }
+
+.hvr-float-shadow:hover:before, .hvr-float-shadow:focus:before, .hvr-float-shadow:active:before {
+  opacity: 1;
+  -webkit-transform: translateY(5px);
+  transform: translateY(5px);
+  /* move the element down by 5px (it will stay in place because it's attached to the element that also moves up 5px) */ }

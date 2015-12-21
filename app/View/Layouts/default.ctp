@@ -100,16 +100,24 @@ $cakeDescription = __d('cake_dev', 'stats.chrisvogt.me');
     </div>
     <div id="ticker" class="row text-center fullWidth">
         <p class="lead">
-            <i class="fa fa-twitter"></i>
-            <a href="https://twitter.com/c1v0" title="Chris Vogt on Twitter">@c1v0</a>
-            has logged <strong><?php echo $totalTimeInWords; ?></strong>
-            working on open source projects over the last 30 days.
+            I have logged <strong><?php echo $totalTimeInWords; ?></strong> working on open source projects the last 30 days.
         </p>
     </div>
 	<div id="content">
         <?php echo $this->Session->flash(); ?>
 		<?php echo $this->fetch('content'); ?>
 	</div>
+    <section id="promote">
+        <div class="row">
+            <div class="medium-8 columns">
+                <p>View my code on GitHub to learn more:</p>
+            </div>
+            <div class="medium-4 columns">
+                <a href="https://github.com/chrisvogt?tab=contributions&amp;period=monthly" title="Chris Vogt on GitHub" class="button expand hvr-float-shadow"><i class="fa fa-github"></i> <em>chrisvogt</em> on GitHub</a>
+            </div>
+        </div>
+    </section>
+
     <section id="social">
       <div class="row">
         <div class="large-12 columns">
