@@ -92,7 +92,7 @@ class WakaChartComponent extends Component {
                 'color' => '#fafafa'
             ]
         );
-        $chart->subtitle->text = 'Open source contributions';
+        $chart->subtitle->text = 'Public projects on GitHub';
         $chart->subtitle->color = '78909C';
 
         $chart->yAxis->gridLineColor = '#37474F';
