@@ -83,28 +83,32 @@ class WakaChartComponent extends Component {
 			'type' 		=> 'areaspline',
             'backgroundColor' => null
 		);
-        $chart->chart->style = ["fontFamily" => "Merriweather, serif"];
+        $chart->chart->style = ["fontFamily" => "Quicksand, sans-serif"];
 		$chart->credits->enabled = false;
 		$chart->title = array(
             'text' => 'Time spent coding, last 30 days',
             'style' => [
                 'fontFamily' => 'Quicksand, sanf-serif',
-                'color' => '#4527A0'
+                'color' => '#fafafa'
             ]
         );
         $chart->subtitle->text = 'Open source contributions';
+        $chart->subtitle->color = '78909C';
 
-        $chart->plotOptions->areaspline->fillColor = '#008CBA';
+        $chart->yAxis->gridLineColor = '#37474F';
+
+        $chart->tooltip->formatter = new Ghunti\HighchartsPHP\HighchartJsExpr(
+            "function() { return '<b>'+ this.x +'</b>: ' + this.y + ' hours' +' logged.';}");
 
 		$chart->xAxis->categories = $this->_extractTitles($data);
-        $chart->xAxis->labels->style->color = "#546E7A";
 
 		$chart->yAxis['min'] = 0;
         $chart->yAxis->title->text = "Hours";
-		$chart->yAxis->title->style->color = "#546E7A";
 
         $chart->series[0] = array(
 			'name' => 'Hours',
+            'fillColor' => '#03A9F4',
+            'lineColor' => '#b2ff59',
 			'data' => $this->_extractStats($data),
 	    	'tooltip' => array(
         		'valueDecimals' => 1
@@ -134,8 +138,8 @@ class WakaChartComponent extends Component {
             'text' => 'Language breakdown',
             'style' => ["fontFamily" => "Quicksand, sanf-serif"]
         );
-		$chart->title->style->color = "#fefefe";
-		$chart->subtitle->text = 'Languages used over the last 30 days';
+		$chart->title->style->color = "#4527a0";
+		$chart->subtitle->text = 'Filetypes edited, last 30 days';
 		$chart->tooltip->formatter = new Ghunti\HighchartsPHP\HighchartJsExpr(
 		    "function() {
 		    return '<b>'+ this.point.name +'</b>: '+ this.percentage.toFixed(1) +' %';}");

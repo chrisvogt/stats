@@ -24,12 +24,14 @@ $cakeDescription = __d('cake_dev', 'stats.chrisvogt.me');
         <?php echo $this->Html->charset() . "\n"; ?>
         <?php echo $this->Html->meta(['name' => 'viewport', 'content' => 'width=device-width, initial-scale=1.0']) . "\n";?>
 <!--
-    ┬ ┬┌─┐┬ ┬┌─┐┬ ┬┌─┐┬─┐   ┬┌┐┌┌─┐┌─┐
-    ││││ │││││  ├─┤├─┤├┬┘───││││├┤ │ │
-    └┴┘└─┘└┴┘└─┘┴ ┴┴ ┴┴└─   ┴┘└┘└  └─┘
-                              by @c1v0
-
-    https://github.com/chrisvogt/wowchar-info
+/**
+███████╗████████╗ █████╗ ████████╗███████╗
+██╔════╝╚══██╔══╝██╔══██╗╚══██╔══╝██╔════╝
+███████╗   ██║   ███████║   ██║   ███████╗
+╚════██║   ██║   ██╔══██║   ██║   ╚════██║
+███████║   ██║   ██║  ██║   ██║   ███████║
+╚══════╝   ╚═╝   ╚═╝  ╚═╝   ╚═╝   ╚══════╝
+                           by chrisvogt.me
 -->
 	<title><?php echo $title_for_layout; ?> — <?php echo $cakeDescription; ?></title>
 
