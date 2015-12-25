@@ -176,6 +176,12 @@ class WakaChartComponent extends Component {
 		return $chart;
 	}
 
+/**
+ * Extract and return language statistics from WakaTime data.
+ *
+ * @param array
+ * @return array
+ */
 	protected function _extractLanguageStats($data) {
 		$langs = [];
 		foreach ($data as $event) {
@@ -188,10 +194,10 @@ class WakaChartComponent extends Component {
 			}
 		}
 		$l = [];
-		foreach ($langs as $k => $v) {
-			$l[] = [$k, $v];
-		}
-		return $l;
+        foreach ($langs as $k => $v) {
+            $l[] = [$k, $v];
+        }
+		return array_filter($l, array($this, '_filterLangs'));
 	}
 
 /**
@@ -227,5 +233,17 @@ class WakaChartComponent extends Component {
 
 		return $stats;
 	}
+
+/**
+ * Filters out unwanted items.
+ *
+ * @param array
+ * @return boolean
+ */
+    protected function _filterLangs($lang) {
+        $unwanted = ['Image (png)'];
+        $found = in_array($lang[0], $unwanted);
+        return($found) ? false : true;
+    }
 
 }
