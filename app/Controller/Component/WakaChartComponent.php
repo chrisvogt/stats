@@ -193,12 +193,24 @@ class WakaChartComponent extends Component {
 				}
 			}
 		}
-		$l = [];
-        foreach ($langs as $k => $v) {
-            $l[] = [$k, $v];
-        }
-		return array_filter($l, array($this, '_filterLangs'));
+		$list = $this->_buildList($langs);
+        $filtered = $this->_filterList($list);
+
+		return $filtered;
 	}
+
+    protected function _buildList($langs) {
+        $list = [];
+        foreach ($langs as $k => $v) {
+            $list[] = [$k, $v];
+        }
+        return $list;
+    }
+
+    protected function _filterList($list) {
+        $list = array_values(array_filter($list, array($this, '_filterLangs')));
+        return $list;
+    }
 
 /**
  * Extracts titles from WakaTime data
@@ -241,7 +253,10 @@ class WakaChartComponent extends Component {
  * @return boolean
  */
     protected function _filterLangs($lang) {
-        $unwanted = ['Image (png)'];
+        $unwanted = [
+            'Image (png)',
+            'Bash'
+        ];
         $found = in_array($lang[0], $unwanted);
         return($found) ? false : true;
     }

@@ -112,9 +112,8 @@ class WakaTimeComponent extends Component {
     protected function makeRequest($resource, $params = null) {
         $HttpSocket = new HttpSocket(['ssl_verify_host' => false]);
         $params['api_key'] = $this->apiKey;
-        $query = $this->buildQuery($resource, $params);
-        // $url = 'https://cdn.rawgit.com/chrisvogt/04dcd15341c797839448/raw/84286c8917b5c088e8507b24be413c61b0ed6f95/summaries.json';
 
+        $query = $this->buildQuery($resource, $params);
         $results = $HttpSocket->get($query);
 
         if ($results->code == 404) {
