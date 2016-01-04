@@ -16,7 +16,34 @@
 
 <?php $chart->printScripts(); ?>
 
-<script type="text/javascript">
+<script>
+    var colors = Highcharts.getOptions().colors,
+        categories = ['scripting', 'styles', 'data', 'markup', 'other'],
+        name = 'Filetype categories',
+        data = <?php echo $chartData->renderOptions(); ?>;
+
+    // Build the data arrays
+    var categoryData = [];
+    var languageData = [];
+
+    for (var i = 0; i < data.length; i++) {
+        // add category data
+        categoryData.push({
+            name: categories[i],
+            y: data[i].y,
+            color: data[i].color
+        });
+        // add language data
+        for (var j = 0; j < data[i].drilldown.data.length; j++) {
+            var brightness = 0.2 - (j / data[i].drilldown.data.length) / 5 ;
+            languageData.push({
+                name: data[i].drilldown.categories[j],
+                y: data[i].drilldown.data[j],
+                color: Highcharts.Color(data[i].color).brighten(brightness).get()
+            });
+        }
+    }
+
     <?php echo $chart->render("chart");?>
     <?php echo $langChart->render("chart");?>
 </script>

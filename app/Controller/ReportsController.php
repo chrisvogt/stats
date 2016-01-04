@@ -48,10 +48,13 @@ class ReportsController extends AppController {
         }, 'resource');
 
         $this->set('chart', $this->WakaChart->totalHoursChart($ds['data']));
-        $this->set('langChart', $this->WakaChart->getLanguageChart($ds['data']));
+        $this->set('langChart', $this->WakaChart->buildLanguageChart());
+        $this->set('chartData', $this->WakaChart->getLanguageData($ds['data']));
+
         $this->set('totalTimeInWords', $this->getTime($ds['data']));
         $this->set('title_for_layout', 'C1V0\'s coding stats, last 30 days');
         $this->set('_serialize', array('totalTimeInWords'));
+
         $this->response->header('Access-Control-Allow-Origin','*');
     }
 
