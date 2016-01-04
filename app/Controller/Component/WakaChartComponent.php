@@ -24,7 +24,8 @@ App::import(
 	array('file' => 'ghunti' . DS . 'highcharts-php' . DS . 'src' . DS . 'Highchart.php')
 );
 
-use Ghunti\HighchartsPHP;
+use Ghunti\HighchartsPHP\Highchart;
+use Ghunti\HighchartsPHP\HighchartJsExpr;
 
 /**
  * WakaChart Component class
@@ -42,6 +43,31 @@ class WakaChartComponent extends Component {
 	 * @var object
 	 */
 	protected $WakaTime;
+
+    public $mapping = [
+        'scripting' => [
+            'PHP',
+            'JavaScript',
+            'Python'
+        ],
+        'styles' => [
+            'SCSS',
+            'CSS',
+            'LESS'
+        ],
+        'data' => [
+            'YAML',
+            'JSON'
+        ],
+        'markup' => [
+            'HTML',
+            'Markdown'
+        ],
+        'other' => [
+            'Text',
+            'Other'
+        ]
+    ];
 
 	/**
 	 * Class constructor
@@ -76,7 +102,7 @@ class WakaChartComponent extends Component {
  * @return Ghunti\HighchartsPHP\Highchart
  */
 	public function totalHoursChart($data) {
-		$chart = new Ghunti\HighchartsPHP\Highchart();
+		$chart = new Highchart();
 
 		$chart->chart = array(
 			'renderTo' 	=> 'chart7Days',
@@ -97,7 +123,7 @@ class WakaChartComponent extends Component {
 
         $chart->yAxis->gridLineColor = '#37474F';
 
-        $chart->tooltip->formatter = new Ghunti\HighchartsPHP\HighchartJsExpr(
+        $chart->tooltip->formatter = new HighchartJsExpr(
             "function() { return '<b>'+ this.x +'</b>: ' + this.y + ' hours' +' logged.';}");
 
 		$chart->xAxis->categories = $this->_extractTitles($data);
@@ -141,40 +167,110 @@ class WakaChartComponent extends Component {
 	 *
 	 * see: https://cdn.rawgit.com/chrisvogt/8ddba818f7c312b58cc2/raw/f3330d0b9b0369cf121af0baa63ec9cea4cf5d0e/summaries.json
 	 */
-	public function getLanguageChart($data) {
-		$chart = new Ghunti\HighchartsPHP\Highchart();
+	public function buildLanguageChart()
+{		$chart = new Highchart();
 
-		$chart->chart->renderTo = "chartLanguages";
-		$chart->credits->enabled = false;
-		$chart->chart->plotBackgroundColor = null;
-		$chart->chart->backgroundColor = null;
-		$chart->chart->style = ["fontFamily" => "Merriweather, serif"];
+		$chart->chart = [
+            "renderTo" => "chartLanguages",
+            "type"     => "pie",
+            "plotBackgroundColor" => null,
+            "backgroundColor"     => null,
+            "style"    => ["fontFamily" => "Merriweather, serif"]
+        ];
+
         $chart->title = array(
-            'text' => 'Language breakdown',
-            'style' => ["fontFamily" => "Quicksand, sanf-serif"]
+            'text' => 'Filetypes edited',
+            'style' => [
+                "fontFamily" => "Quicksand, sanf-serif",
+                "color"      => "#4527a0"
+            ]
         );
-		$chart->title->style->color = "#4527a0";
-		$chart->subtitle->text = 'Filetypes edited, last 30 days';
-		$chart->tooltip->formatter = new Ghunti\HighchartsPHP\HighchartJsExpr(
-		    "function() {
-		    return '<b>'+ this.point.name +'</b>: '+ this.percentage.toFixed(1) +' %';}");
-		$chart->plotOptions->pie->allowPointSelect = 1;
-		$chart->plotOptions->pie->cursor = "pointer";
-		$chart->plotOptions->pie->dataLabels->enabled = 1;
-		$chart->plotOptions->pie->dataLabels->color = "#484848";
-        $chart->plotOptions->pie->dataLabels->style->textShadow = false;
-		$chart->plotOptions->pie->dataLabels->connectorColor = "#cecece";
-		$chart->plotOptions->pie->dataLabels->formatter = new Ghunti\HighchartsPHP\HighchartJsExpr(
-		    "function() {
-		    return '<b>'+ this.point.name +'</b>: '+ this.percentage.toFixed(1) +' %'; }");
-		$chart->series[] = array(
-		    'type' => "pie",
-		    'name' => "Languages",
-		    'data' => $this->_extractLanguageStats($data)
-		);
+        $chart->subtitle->text = 'Source: <a href="https://wakatime.com/">WakaTime</a>';
+		$chart->credits->enabled = false;
+
+        $chart->plotOptions = [
+            "pie" => [
+                "shadow" => false,
+                "center" => ['50%', '50%']
+            ]
+        ];
+
+        $chart->tooltip->formatter = new HighchartJsExpr(
+            "function() { return '<b>'+ this.point.name +'</b> – ' + this.y + '%';}");
+
+        $chart->series[] = array(
+            'name' => "Categories",
+            'data' => new HighchartJsExpr("categoryData"),
+            'size' => "60%",
+            'dataLabels' => array(
+                'formatter' => new HighchartJsExpr("function() {
+            return this.y > 5 ? this.point.name : null; }"),
+                'color' => 'white',
+                'distance' => - 30,
+                'style' => ['textShadow' => '0 0 6px #212121, 0 0 3px #212121']
+            )
+        );
+        $chart->series[1]->name = "Languages";
+        $chart->series[1]->data = new HighchartJsExpr("languageData");
+        $chart->series[1]->innerSize = "80%";
+        $chart->series[1]->dataLabels->color = '#484848';
+        $chart->series[1]->dataLabels->formatter = new HighchartJsExpr(
+            "function() {
+            return this.y > .5 ? '<b>'+ this.point.name +':</b> '+ this.y +'%'  : null;}");
 
 		return $chart;
 	}
+
+    public function getLanguageData($data) {
+        $stats       = $this->_extractLanguageStats($data);
+        $mapped_data = $this->_buildLanguageData($stats);
+
+        $chartData = new Highchart();
+
+        $i = 0;
+        foreach ($mapped_data as $category => $list) {
+            $chartData[$i] = [
+                "y" => array_sum($list),
+                "color" => new HighchartJsExpr("colors[" . $i . "]"),
+                "drilldown" => [
+                    "name"       => $category,
+                    "categories" => array_keys($list),
+                    "data"       => array_values($list),
+                    "color"      => new HighchartJsExpr("colors[" . $i . "]")
+                ]
+            ];
+            $i++;
+        }
+        unset($i);
+
+        return $chartData;
+    }
+
+/**
+ * Maps language stats to chart data.
+ *
+ * @param array
+ * @return array
+ */
+    protected function _buildLanguageData($stats) {
+        $total = 0;
+
+        foreach ($stats as $stat) {
+            $total += $stat[1];
+        }
+
+        $mapped = [];
+        foreach ($this->mapping as $category => $list) {
+            $mapped[$category] = [];
+            foreach ($stats as $stat) {
+                if (in_array($stat[0], $list)) {
+                    $mapped[$category][$stat[0]] = round($stat[1] / $total * 100, 1);
+                }
+            }
+        }
+
+        return $mapped;
+    }
 
 /**
  * Extract and return language statistics from WakaTime data.
