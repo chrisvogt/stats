@@ -33,7 +33,7 @@ $cakeDescription = __d('cake_dev', 'Recent coding stats for Chris Vogt, front en
 ╚══════╝   ╚═╝   ╚═╝  ╚═╝   ╚═╝   ╚══════╝
                            by chrisvogt.me
 -->
-	<title><?php echo $title_for_layout; ?> — stats.chrisvogt.me</title>
+	<title><?php echo $title_for_layout; ?> — CHRISVOGT.me</title>
 
 <?php
   echo "\t" . $this->Html->meta(['name' => 'description', 'content' => $cakeDescription]) . "\n";
@@ -100,7 +100,7 @@ $cakeDescription = __d('cake_dev', 'Recent coding stats for Chris Vogt, front en
     </div>
     <div id="ticker" class="row text-center fullWidth">
         <p class="lead">
-            <strong><?php echo $totalTimeInWords; ?></strong> logged working on open source projects, last 30 days.
+            <strong><?php echo $totalTimeInWords; ?></strong> logged, <br class="show-for-small-only">last thirty days
         </p>
     </div>
 	<div id="content">
@@ -148,14 +148,14 @@ $cakeDescription = __d('cake_dev', 'Recent coding stats for Chris Vogt, front en
     </section>
     <footer>
       <div class="row">
-        <div class="large-6 columns">
+        <div class="small-6 columns">
           <p><i class="fa fa-code"></i> with <i class="fa fa-heart"></i> by <i class="fa fa-twitter"></i> <a href="https://twitter.com/c1v0" title="@c1v0 on Twitter">@c1v0</a></p>
         </div>
-        <div class="large-6 columns"><!--
+        <div class="small-6 columns">
           <ul class="inline-list right">
-            <li><a href="https://www.chrisvogt.me" title="Home">Home</a></li>
+            <li><a href="http://stats.chrisvogt.me" title="Chris Vogt's open source stats">Stats</a></li>
             <li><a href="https://resume.chrisvogt.me" title="Chris Vogt's résumé">Résumé</a></li>
-          </ul> -->
+          </ul>
         </div>
       </div>
     </footer>

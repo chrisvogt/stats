@@ -112,13 +112,13 @@ class WakaChartComponent extends Component {
         $chart->chart->style = ["fontFamily" => "Quicksand, sans-serif"];
 		$chart->credits->enabled = false;
 		$chart->title = array(
-            'text' => 'Time spent coding, last 30 days',
+            'text' => 'Time spent coding',
             'style' => [
                 'fontFamily' => 'Quicksand, sanf-serif',
                 'color' => '#fafafa'
             ]
         );
-        $chart->subtitle->text = 'Public projects on GitHub';
+        $chart->subtitle->text = 'Last 30 days';
         $chart->subtitle->color = '78909C';
 
         $chart->yAxis->gridLineColor = '#37474F';
