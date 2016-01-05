@@ -50,10 +50,13 @@ ul.title-area {
 }
 footer {
     p,
+    a,
+    li,
     ul {
         line-height: 32px;
         margin-bottom: 0;
         color: #aeaeae;
+        font-size: 12px;
     }
     .inline-list {
         margin: 0;
@@ -108,9 +111,6 @@ body {
 a {
     text-decoration: none;
 }
-h2 {
-    margin: 24px 0;
-}
 footer i.fa-heart {
     color: #990000;
 }
@@ -130,10 +130,11 @@ h1 {
     margin-bottom: 0px;
 }
 h2 {
-    font-family: 'Merriweather', serif;
+    font-family: 'Quicksand', sans-serif;
     color: $grey-900;
     font-size: 36px;
     line-height: 34px;
+    margin: 0 auto 24px;
 }
 h3 {
     font-family: 'Merriweather', serif;
