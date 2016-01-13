@@ -1,9 +1,10 @@
-# stats.chrisvogt.me
-
+[![Build status](https://img.shields.io/travis/chrisvogt/stats.svg?branch=master&style=flat-square)](https://travis-ci.org/chrisvogt/stats)
 [![GitHub release](https://img.shields.io/github/release/chrisvogt/stats.svg?style=flat-square)](https://github.com/chrisvogt/stats/releases)
 [![GitHub license](https://img.shields.io/github/license/chrisvogt/stats.svg?style=flat-square)](https://github.com/chrisvogt/stats/blob/master/LICENSE)
 
-My coding habits over the last 30 days. Uses data from [WakaTime](https://wakatime.com), a time-tracking service for developers.
+# stats.chrisvogt.me
+
+A coding habits report built on CakePHP using data from [WakaTime](https://wakatime.com).
 
 View it live @ [stats.chrisvogt.me](http://stats.chrisvogt.me).
 
@@ -29,20 +30,11 @@ View it live @ [stats.chrisvogt.me](http://stats.chrisvogt.me).
 
 ### Screenshot
 
-[![C1V0's stats](fos/images/screenshot.png)](http://stats.chrisvogt.me)
+[![Code stats on CHRISVOGT.me](fos/images/screenshot.png)](https://stats.chrisvogt.me)
 
 ### License
 
-[The MIT License](LICENSE).
-
-Copyright (c) 2015 CJ Vogt http://www.chrisvogt.me
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+[MIT](LICENSE) © [Chris Vogt](https://www.chrisvogt.me).
 
 ### Built with
 
