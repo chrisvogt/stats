@@ -6,9 +6,9 @@
   "homepage" : "http://stats.chrisvogt.me",
   "license" : "MIT",
   "require" : {
-    "php" : "^5.5",
+    "php" : "^5.4",
     "composer/installers" : "~1.0",
-    "cakephp/cakephp" : "2.5.*",
+    "cakephp/cakephp" : "2.7.*",
     "friendsofcake/crud" : "3.*",
     "josegonzalez/dotenv": "0.3.*",
     "ad7six/dsn": "0.3.*",
@@ -20,15 +20,8 @@
     "cakephp/debug_kit" : "2.2.*",
     "phpunit/phpunit": "3.7.32"
   },
-  "minimum-stability": "dev",
+  "minimum-stability": "stable",
   "config": {
     "preferred-install": "dist"
-  },
-  "extra": {
-    "heroku": {
-      "framework": "cakephp2",
-      "document-root": "webroot",
-      "index-document": "index.php"
-    }
   }
 }
