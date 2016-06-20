@@ -20,23 +20,25 @@
     var categoryData = [];
     var languageData = [];
 
-    for (var i = 0; i < data.length; i++) {
+    $.each(data, function(x, datum) {
         // add category data
         categoryData.push({
-            name: categories[i],
-            y: data[i].y,
-            color: data[i].color
+            name: categories[x],
+            y: data[x].y,
+            color: data[x].color
         });
         // add language data
-        for (var j = 0; j < data[i].drilldown.data.length; j++) {
-            var brightness = 0.2 - (j / data[i].drilldown.data.length) / 5 ;
-            languageData.push({
-                name: data[i].drilldown.categories[j],
-                y: data[i].drilldown.data[j],
-                color: Highcharts.Color(data[i].color).brighten(brightness).get()
-            });
+        if (data[x].drilldown.data) {
+            for (var j = 0; j < data[x].drilldown.data.length; j++) {
+                var brightness = 0.2 - (j / data[x].drilldown.data.length) / 5 ;
+                languageData.push({
+                    name: data[x].drilldown.categories[j],
+                    y: data[x].drilldown.data[j],
+                    color: Highcharts.Color(data[x].color).brighten(brightness).get()
+                });
+            }
         }
-    }
+    });
 
     <?php echo $chart->render("chart");?>
     <?php echo $langChart->render("chart");?>
