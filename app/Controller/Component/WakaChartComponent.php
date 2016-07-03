@@ -48,7 +48,9 @@ class WakaChartComponent extends Component {
         'scripting' => [
             'PHP',
             'JavaScript',
-            'Python'
+            'Python',
+            'Ruby',
+            'Bash'
         ],
         'styles' => [
             'SCSS',
@@ -57,7 +59,8 @@ class WakaChartComponent extends Component {
         ],
         'data' => [
             'YAML',
-            'JSON'
+            'JSON',
+            'INI'
         ],
         'markup' => [
             'HTML',
@@ -350,8 +353,7 @@ class WakaChartComponent extends Component {
  */
     protected function _filterLangs($lang) {
         $unwanted = [
-            'Image (png)',
-            'Bash'
+            'Image (png)'
         ];
         $found = in_array($lang[0], $unwanted);
         return($found) ? false : true;
