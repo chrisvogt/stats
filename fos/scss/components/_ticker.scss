@@ -1,0 +1,14 @@
+/**
+ * Ticker styles
+ */
+
+#ticker {
+    background: $grey-50;
+    p {
+        margin: 24px 0;
+        color: #282828;
+    }
+    a:active {
+        color: $quartzite-blue!important;
+    }
+}

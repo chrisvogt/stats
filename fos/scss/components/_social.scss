@@ -1,0 +1,58 @@
+/**
+ * Social pane styles
+ */
+
+#social {
+    background: rgba(69,39,160,1);
+    background: -moz-linear-gradient(45deg, rgba(69,39,160,1) 0%, rgba(113,30,155,1) 100%);
+    background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(69,39,160,1)), color-stop(100%, rgba(113,30,155,1)));
+    background: -webkit-linear-gradient(45deg, rgba(69,39,160,1) 0%, rgba(113,30,155,1) 100%);
+    background: -o-linear-gradient(45deg, rgba(69,39,160,1) 0%, rgba(113,30,155,1) 100%);
+    background: -ms-linear-gradient(45deg, rgba(69,39,160,1) 0%, rgba(113,30,155,1) 100%);
+    background: linear-gradient(45deg, rgba(69,39,160,1) 0%, rgba(113,30,155,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4527a0', endColorstr='#711e9b', GradientType=1 );
+
+    transition: background 1s ease;
+    text-align: center;
+    padding: 0;
+    a {
+        color: #cecece;
+
+    }
+    a:hover {
+        color: $white;
+    }
+}
+
+#social a,
+.button {
+    -webkit-transition: all .6s ease-in;
+    -moz-transition: all .6s ease-in;
+    -o-transition: all .6s ease-in;
+    transition: all .6s ease-in;
+}
+
+#links .inline-list {
+    margin-bottom: 0;
+    margin: 96px auto;
+}
+#links li {
+    float: none;
+    display: inline-block;
+    font-size: 1.25rem;
+    margin: 0 14px;
+}
+
+@media only screen and (min-width: 40.063em) and (max-width: 64em) {
+    #links li {
+        margin: 0 24px;
+        font-size: 2rem;
+    }
+}
+
+@media only screen and (min-width: 64.063em) {
+    #links li {
+        margin: 0 42px;
+        font-size: 2.675rem;
+    }
+}
