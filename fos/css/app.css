@@ -4463,6 +4463,8 @@ th.hide-for-touch {
 /**
  * Sass variables
  */
+/* Colors */
+/* Elements */
 /* Base */
 /**
  * Helpers
@@ -4532,6 +4534,7 @@ footer i.fa-twitter {
  */
 #promote {
   background: #fafafa;
+  border-top: 1px solid #dfdfdf;
   padding: 10px 0;
   text-align: center; }
   @media only screen and (min-width: 40.063em) {
@@ -4593,7 +4596,8 @@ footer i.fa-twitter {
  * Ticker styles
  */
 #ticker {
-  background: #fafafa; }
+  background: #fafafa;
+  border-bottom: 1px solid #dfdfdf; }
   #ticker p {
     margin: 24px 0;
     color: #282828; }
@@ -4620,7 +4624,7 @@ footer {
  * Common styles
  */
 body {
-  background: #eceff1; }
+  background: #eee; }
 
 #content {
   padding: 32px 0; }
