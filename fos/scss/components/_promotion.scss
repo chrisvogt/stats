@@ -1,0 +1,20 @@
+/**
+ * Promotional pane styles
+ */
+
+#promote {
+    background: $grey-50;
+    border-top: $divider-light;
+    padding: 10px 0;
+    text-align: center;
+
+    @media only screen and (min-width: 40.063em) {
+        p {
+            text-align: left;
+            padding: 24px 0; margin: 0;
+        }
+        a {
+            margin: 10px auto 0;
+        }
+    }
+}
