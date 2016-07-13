@@ -7,3 +7,4 @@
 /fos/components
 /node_modules
 .vagrant
+.DS_Store
