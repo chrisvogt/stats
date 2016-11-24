@@ -21,8 +21,8 @@ $cakeDescription = __d('cake_dev', 'Recent coding stats for Chris Vogt, front en
 ?><!DOCTYPE html>
 <html>
 <head>
-        <?php echo $this->Html->charset() . "\n"; ?>
-        <?php echo $this->Html->meta(['name' => 'viewport', 'content' => 'width=device-width, initial-scale=1.0']) . "\n";?>
+    <?php echo $this->Html->charset() . "\n"; ?>
+    <?php echo $this->Html->meta(['name' => 'viewport', 'content' => 'width=device-width, initial-scale=1.0']) . "\n";?>
 <!--
 /**
 ███████╗████████╗ █████╗ ████████╗███████╗
@@ -52,46 +52,49 @@ $cakeDescription = __d('cake_dev', 'Recent coding stats for Chris Vogt, front en
   echo "\t" . $this->Html->meta(['name' => 'theme-color', 'content' => '#0a2364']) . "\n";
 ?>
 
-        <link rel="shortcut icon" href="https://cdn.rawgit.com/chrisvogt/chrisvogt.me/master/img/favicon.ico">
-        <link rel="apple-touch-icon" href="https://cdn.rawgit.com/chrisvogt/chrisvogt.me/master/img/favicon-57.png">
-        <link rel="apple-touch-icon" sizes="76x76" href="https://cdn.rawgit.com/chrisvogt/chrisvogt.me/master/img/favicon-76.png">
-        <link rel="apple-touch-icon" sizes="120x120" href="https://cdn.rawgit.com/chrisvogt/chrisvogt.me/master/img/favicon-120.png">
-        <link rel="apple-touch-icon" sizes="152x152" href="https://cdn.rawgit.com/chrisvogt/chrisvogt.me/master/img/favicon-152.png">
+    <link rel="shortcut icon" href="https://cdn.rawgit.com/chrisvogt/chrisvogt.me/master/img/favicon.ico">
+    <link rel="apple-touch-icon" href="https://cdn.rawgit.com/chrisvogt/chrisvogt.me/master/img/favicon-57.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="https://cdn.rawgit.com/chrisvogt/chrisvogt.me/master/img/favicon-76.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="https://cdn.rawgit.com/chrisvogt/chrisvogt.me/master/img/favicon-120.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="https://cdn.rawgit.com/chrisvogt/chrisvogt.me/master/img/favicon-152.png">
 
-        <?php
-      	echo $this->Html->meta('icon');
+    <?php
+  	echo $this->Html->meta('icon');
 
-        $css_app = Configure::read('debug') > 0 ? '/fos/css/app' : 'app.min';
-        echo $this->Html->css([
-            $css_app,
-            'font-awesome.min'
-        ]);
+    $css_app = Configure::read('debug') > 0 ? '/fos/css/app' : 'app.min';
+    echo $this->Html->css([
+        $css_app,
+        'font-awesome.min'
+    ]);
 
-        $this->Html->script([
-            'foundation.min.js',
-        ], ['block' => 'scriptBottom']);
+    $this->Html->script([
+        'foundation.min.js',
+        'https://cdn.rawgit.com/chrisvogt/www.chrisvogt.me/dee24618fb7d78a31bee3510ba50c6f9d2fc5e3b/app/scripts/app.js',
+        'https://cdn.rawgit.com/chrisvogt/www.chrisvogt.me/dee24618fb7d78a31bee3510ba50c6f9d2fc5e3b/app/scripts/HttpSocket.js',
+        'https://cdn.rawgit.com/chrisvogt/www.chrisvogt.me/dee24618fb7d78a31bee3510ba50c6f9d2fc5e3b/app/scripts/social.jquery.js'
+    ], ['block' => 'scriptBottom']);
 
-      	echo $this->fetch('meta');
-      	echo $this->fetch('css');
-      	echo $this->fetch('script');
-        ?>
-        <script type="text/javascript">
-          WebFontConfig = {
-            google: { families: [ 'Quicksand::latin', 'Merriweather:300,300italic:latin' ] }
-          };
-          (function() {
-            var wf = document.createElement('script');
-            wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
-              '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
-            wf.type = 'text/javascript';
-            wf.async = 'true';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(wf, s);
-          })(); </script>
-        <!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-        <![endif]-->
+  	echo $this->fetch('meta');
+  	echo $this->fetch('css');
+  	echo $this->fetch('script');
+    ?>
+    <script type="text/javascript">
+      WebFontConfig = {
+        google: { families: [ 'Quicksand::latin', 'Merriweather:300,300italic:latin' ] }
+      };
+      (function() {
+        var wf = document.createElement('script');
+        wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+          '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+        wf.type = 'text/javascript';
+        wf.async = 'true';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(wf, s);
+      })(); </script>
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
 </head>
 <body>
     <?php echo $this->element('navbar-top'); ?>
@@ -123,24 +126,7 @@ $cakeDescription = __d('cake_dev', 'Recent coding stats for Chris Vogt, front en
         <div class="large-12 columns">
           <nav id="links">
             <ul class="inline-list">
-              <li>
-                <a href="https://github.com/chrisvogt" title="Chris Vogt on GitHub"><i class="fa fa-github"></i></a>
-              </li>
-              <li>
-                <a href="https://twitter.com/c1v0" title="@c1v0 on Twitter"><i class="fa fa-twitter"></i></a>
-              </li>
-              <li>
-                <a href="https://www.linkedin.com/in/cjvogt" title="CJ Vogt on LinkedIn"><i class="fa fa-linkedin"></i></a>
-              </li>
-              <li>
-                <a href="https://www.behance.net/chrisvogt" title="Chris Vogt on Behance"><i class="fa fa-behance"></i></a>
-              </li>
-              <li>
-                <a href="http://stackoverflow.com/users/1391826/chris-vogt?tab=profile" title="Chris Vogt on StackOverflow"><i class="fa fa-stack-overflow"></i></a>
-              </li>
-              <li>
-                <a href="https://instagram.com/c1v0/" title="c1v0 on Instagram"><i class="fa fa-instagram"></i></a>
-              </li>
+
             </ul>
           </nav>
         </div>
@@ -175,6 +161,7 @@ $cakeDescription = __d('cake_dev', 'Recent coding stats for Chris Vogt, front en
     <script>
       $(function() {
         $(document).foundation();
+        C1V0.social.init();
       });
     </script>
 </body>

@@ -4530,11 +4530,21 @@ footer i.fa-twitter {
 
 /* Components */
 /**
+ * Header chart styles
+ */
+#header-chart {
+  background: #212121;
+  position: relative;
+  overflow: hidden; }
+  #header-chart .chart {
+    z-index: 9;
+    position: relative; }
+
+/**
  * Promotional pane styles
  */
 #promote {
-  background: #fafafa;
-  border-top: 1px solid #dfdfdf;
+  background: white;
   padding: 10px 0;
   text-align: center; }
   @media only screen and (min-width: 40.063em) {
@@ -4574,30 +4584,27 @@ footer i.fa-twitter {
 
 #links .inline-list {
   margin-bottom: 0;
-  margin: 96px auto; }
+  margin: 64px auto; }
 
 #links li {
   float: none;
   display: inline-block;
   font-size: 1.25rem;
   margin: 0 14px; }
-
-@media only screen and (min-width: 40.063em) and (max-width: 64em) {
-  #links li {
-    margin: 0 24px;
-    font-size: 2rem; } }
-
-@media only screen and (min-width: 64.063em) {
-  #links li {
-    margin: 0 42px;
-    font-size: 2.675rem; } }
+  @media only screen and (min-width: 40.063em) and (max-width: 64em) {
+    #links li {
+      margin: 0 24px;
+      font-size: 2rem; } }
+  @media only screen and (min-width: 64.063em) {
+    #links li {
+      margin: 0 42px;
+      font-size: 2.675rem; } }
 
 /**
  * Ticker styles
  */
 #ticker {
-  background: #fafafa;
-  border-bottom: 1px solid #dfdfdf; }
+  background: white; }
   #ticker p {
     margin: 24px 0;
     color: #282828; }
@@ -4624,7 +4631,7 @@ footer {
  * Common styles
  */
 body {
-  background: #eee; }
+  background: #eceff1; }
 
 #content {
   padding: 32px 0; }
@@ -4647,34 +4654,22 @@ footer .inline-list {
 /**
  * Masthead styles
  */
-.top-bar {
+nav.top-bar {
   background: none; }
-  .top-bar ul li {
+  nav.top-bar ul li,
+  nav.top-bar a {
     background: none; }
-  .top-bar a {
-    background: none; }
-
-.top-bar-section li:not(.has-form) a:not(.button) {
-  background: none;
-  transition: background 1s ease; }
-
-#header-chart {
-  background: #212121;
-  position: relative;
-  overflow: hidden; }
-
-#header-chart .chart {
-  z-index: 9;
-  position: relative; }
-
-.page-header {
-  background: none;
-  border: none;
-  margin-bottom: 2em; }
-
-ul.title-area {
-  font-family: 'Quicksand', sanf-serif;
-  text-transform: uppercase; }
+  nav.top-bar ul.title-area {
+    font-family: 'Quicksand', sanf-serif;
+    text-transform: uppercase;
+    padding: 0 .9375rem 0; }
+  nav.top-bar .top-bar-section li:not(.has-form) a:not(.button) {
+    background: none;
+    transition: background 1s ease; }
+    nav.top-bar .top-bar-section li:not(.has-form) a:not(.button):hover {
+      background-color: #005A9C; }
+  nav.top-bar .top-bar-section li.active:not(.has-form) a:not(.button) {
+    background-color: #1E90FF; }
 
 /* Vendor */
 /**

@@ -4,9 +4,9 @@
 
 # stats.chrisvogt.me
 
-A coding habits report built on CakePHP using data from [WakaTime](https://wakatime.com).
+Personal coding habits report built using CakePHP and data from the [WakaTime](https://wakatime.com) API.
 
-View it live @ [stats.chrisvogt.me](http://stats.chrisvogt.me).
+View it live at [stats.chrisvogt.me](https://stats.chrisvogt.me).
 
 ### How to use
 
@@ -14,9 +14,9 @@ View it live @ [stats.chrisvogt.me](http://stats.chrisvogt.me).
 
     git clone https://github.com/chrisvogt/stats
 
-**2.** Install node dependencies.
+**2.** Install node, Bower, and Composer dependencies.
 
-    npm install
+    npm install && bower install && composer install
 
 **3.** Configure the `.env` file.
 
@@ -27,6 +27,10 @@ View it live @ [stats.chrisvogt.me](http://stats.chrisvogt.me).
     grunt  # 'watches' for changes to the scss/js
 
     grunt publish  # runs golive tasks - minify, concat, etc.
+
+**5.** Serve the webroot directory using the built-in PHP web server
+
+    php -t webroot -S localhost:9000
 
 ### Screenshot
 

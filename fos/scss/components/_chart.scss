@@ -1,0 +1,14 @@
+/**
+ * Header chart styles
+ */
+
+#header-chart {
+    background: $grey-900;
+    position: relative;
+    overflow: hidden;
+
+    .chart {
+        z-index: 9;
+        position: relative;
+    }
+}

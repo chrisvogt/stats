@@ -2,8 +2,8 @@
 /**
  * All app tests
  */
-class AllAppTestsTest extends PHPUnit_Framework_TestSuite {
-
+class AllAppTestsTest extends PHPUnit_Framework_TestSuite
+{
     /**
      * Suite define the tests for this suite
      *

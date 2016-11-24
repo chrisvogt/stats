@@ -24,26 +24,39 @@
 App::uses('AppModel', 'Model');
 
 /**
- * Report model for Statsboard.
+ * Report model
  *
  * @package       app.Model.Report
  */
-class Report extends AppModel {
-
-/**
- * recursive
- *
- * @var int
- */
+class Report extends AppModel
+{
+    /**
+     * Fetches model data only, no joins
+     *
+     * @var int
+     */
 	public $recursive = -1;
 
-/**
- * behaviors used by model
- *
- * @var array
- */
+    /**
+     * Behaviors used by this model
+     *
+     * @var array
+     */
 	public $actsAs = ['Containable'];
 
+    /**
+     * This model does not use a database table
+     *
+     * @var boolean
+     */
 	public $useTable = false;
 
+    /**
+     * Social links getter method
+     *
+     * @return array
+     */
+    public function getSocial() {
+        return $this->social;
+    }
 }
