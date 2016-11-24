@@ -7,8 +7,8 @@ App::uses('WakaTimeComponent', 'Controller/Component');
  * WakaTimeComponent Test Case
  *
  */
-class WakaTimeComponentTest extends CakeTestCase {
-
+class WakaTimeComponentTest extends CakeTestCase
+{
     /**
      * setUp method
      *

@@ -28,8 +28,8 @@ App::uses('AppController', 'Controller');
  * @package     app.Controller.ReportsController
  * @link        http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
-class ReportsController extends AppController {
-
+class ReportsController extends AppController
+{
     /**
      * List of controller components
      *
@@ -39,27 +39,26 @@ class ReportsController extends AppController {
 
     /**
      * Stats dashboard
-     *
-     * @return void
      */
     public function dashboard() {
-        $ds = Cache::remember('summaries', function() {
+        $dailySummaries = Cache::remember('summaries', function() {
             return $this->WakaTime->getDailySummaries(strtotime('-30 days'), strtotime('now'));
         }, 'resource');
+        $data = [
+            'title_for_layout' => 'Recent coding stats',
+            'chart' => $this->WakaChart->totalHoursChart($dailySummaries['data']),
+            'langChart' => $this->WakaChart->buildLanguageChart(),
+            'chartData' => $this->WakaChart->getLanguageData($dailySummaries['data']),
+            'totalTimeInWords' => $this->getTime($dailySummaries['data']),
+            '_serialize' => array('totalTimeInWords')
+        ];
 
-        $this->set('chart', $this->WakaChart->totalHoursChart($ds['data']));
-        $this->set('langChart', $this->WakaChart->buildLanguageChart());
-        $this->set('chartData', $this->WakaChart->getLanguageData($ds['data']));
-
-        $this->set('totalTimeInWords', $this->getTime($ds['data']));
-        $this->set('title_for_layout', 'My recent coding stats');
-        $this->set('_serialize', array('totalTimeInWords'));
-
+        $this->set($data);
         $this->response->header('Access-Control-Allow-Origin','*');
     }
 
     /**
-     * Extracts the total seconds and converts it to words.
+     * The total time, in words
      *
      * @param array $data
      * @return string

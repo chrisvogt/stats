@@ -2,38 +2,29 @@
  * Masthead styles
  */
 
-.top-bar {
+nav.top-bar {
     background: none;
-  ul li {
-    background: none;
-  }
-  a {
-    background: none;
-  }
-}
 
-.top-bar-section li:not(.has-form) a:not(.button) {
-  background: none;
-  transition: background 1s ease;
-}
+    ul li,
+    a {
+        background: none;
+    }
+    ul.title-area {
+        font-family: 'Quicksand', sanf-serif;
+        text-transform: uppercase;
+        padding: 0 .9375rem 0;
+    }
+    .top-bar-section li {
+        &:not(.has-form) a:not(.button) {
+            background: none;
+            transition: background 1s ease;
 
-#header-chart {
-    background: $grey-900;
-    position: relative;
-    overflow: hidden;
-}
-#header-chart .chart {
-    z-index: 9;
-    position: relative;
-}
-
-.page-header {
-    background: none;
-    border: none;
-    margin-bottom: 2em;
-}
-
-ul.title-area {
-    font-family: 'Quicksand', sanf-serif;
-    text-transform: uppercase;
+            &:hover {
+                background-color: $dodger-uniform-blue;
+            }
+        }
+        &.active:not(.has-form) a:not(.button) {
+            background-color: $dodger-blue;
+        }
+    }
 }

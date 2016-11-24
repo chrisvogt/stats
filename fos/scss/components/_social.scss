@@ -32,27 +32,24 @@
     transition: all .6s ease-in;
 }
 
-#links .inline-list {
-    margin-bottom: 0;
-    margin: 96px auto;
-}
-#links li {
-    float: none;
-    display: inline-block;
-    font-size: 1.25rem;
-    margin: 0 14px;
-}
-
-@media only screen and (min-width: 40.063em) and (max-width: 64em) {
-    #links li {
-        margin: 0 24px;
-        font-size: 2rem;
+#links {
+    .inline-list {
+        margin-bottom: 0;
+        margin: 64px auto;
     }
-}
+    li {
+        float: none;
+        display: inline-block;
+        font-size: 1.25rem;
+        margin: 0 14px;
 
-@media only screen and (min-width: 64.063em) {
-    #links li {
-        margin: 0 42px;
-        font-size: 2.675rem;
+        @media only screen and (min-width: 40.063em) and (max-width: 64em) {
+            margin: 0 24px;
+            font-size: 2rem;
+        }
+        @media only screen and (min-width: 64.063em) {
+            margin: 0 42px;
+            font-size: 2.675rem;
+        }
     }
 }

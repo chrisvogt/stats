@@ -32,8 +32,8 @@ App::uses('CrudControllerTrait', 'Crud.Lib');
  * @package		app.Controller
  * @link		http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
-class AppController extends Controller {
-
+class AppController extends Controller
+{
 	use CrudControllerTrait;
 
     /**
@@ -62,5 +62,4 @@ class AppController extends Controller {
 	public function beforeFilter() {
 		Parent::beforeFilter();
 	}
-
 }

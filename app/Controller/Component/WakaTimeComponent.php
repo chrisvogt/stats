@@ -19,10 +19,10 @@ App::uses('HttpSocket', 'Network/Http');
  *
  * @link https://github.com/chrisvogt/cakephp-wakatime
  */
-class WakaTimeComponent extends Component {
-
+class WakaTimeComponent extends Component
+{
     /**
-     * Base url for the API call.
+     * Base URL for the API call.
      *
      * @var string
      */
@@ -192,5 +192,4 @@ class WakaTimeComponent extends Component {
 
         return substr_replace($string, "", -2);
     }
-
 }
