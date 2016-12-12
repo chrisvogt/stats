@@ -84,7 +84,7 @@ $cakeDescription = __d('cake_dev', 'Recent coding stats for Chris Vogt, front en
     <![endif]-->
 </head>
 <body>
-    <?php echo $this->element('navbar-top'); ?>
+    <?php echo $this->element('navigation/top'); ?>
     <div id="header-chart" class="row fullWidth">
         <div id="chart7Days" class="fullWidth chart"></div>
     </div>
@@ -129,17 +129,9 @@ $cakeDescription = __d('cake_dev', 'Recent coding stats for Chris Vogt, front en
         </div>
         <div class="small-6 columns">
           <ul class="inline-list right">
-            <li>
-                <a href="." title="Chris Vogt's open source stats">
-                    Stats
-                </a>
-            </li>
-            <li>
-                <a href="https://resume.chrisvogt.me" title="Chris Vogt on StackOverflow">
-                    <i class="fa fa-stack-overflow" aria-hidden="true"></i>
-                    Developer Story
-                </a>
-            </li>
+            <?php foreach ($topNavigation['right'] as $item): ?>
+                <?php echo $this->Element('navigation/item', ['item' => $item]); ?>
+            <?php endforeach; ?>
           </ul>
         </div>
       </div>
