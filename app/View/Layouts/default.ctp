@@ -17,7 +17,7 @@
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
 
-$cakeDescription = __d('cake_dev', 'Recent coding stats for Chris Vogt, front end developer in Phoenix, Arizona.');
+$cakeDescription = __d('cake_dev', 'Recent coding stats for Chris Vogt — Web Developer in San Francisco.');
 ?><!DOCTYPE html>
 <html>
 <head>
@@ -163,11 +163,5 @@ $cakeDescription = __d('cake_dev', 'Recent coding stats for Chris Vogt, front en
       ga('send', 'pageview');
     </script>
     <?php endif; ?>
-    <script>
-      $(function() {
-        $(document).foundation();
-        C1V0.social.init();
-      });
-    </script>
 </body>
 </html>
