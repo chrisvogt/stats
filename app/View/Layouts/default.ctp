@@ -17,7 +17,7 @@
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
 
-$cakeDescription = __d('cake_dev', 'Recent coding stats for Chris Vogt, front end developer in Phoenix, Arizona.');
+$cakeDescription = __d('cake_dev', 'Recent coding stats for Chris Vogt — Web Developer in San Francisco.');
 ?><!DOCTYPE html>
 <html>
 <head>
@@ -44,7 +44,7 @@ $cakeDescription = __d('cake_dev', 'Recent coding stats for Chris Vogt, front en
   echo "\t" . $this->Html->meta(['property' => 'og:description', 'content' => $cakeDescription]) . "\n";
   echo "\t" . $this->Html->meta(['property' => 'og:author', 'content' => 'Chris Vogt']) . "\n";
   echo "\t" . $this->Html->meta(['name' => 'twitter:card', 'content' => 'summary_large_image']) . "\n";
-  echo "\t" . $this->Html->meta(['name' => 'twitter:site', 'content' => 'http://stats.chrisvogt.me']) . "\n";
+  echo "\t" . $this->Html->meta(['name' => 'twitter:site', 'content' => 'https://stats.chrisvogt.me']) . "\n";
   echo "\t" . $this->Html->meta(['name' => 'twitter:creator', 'content' => '@c1v0']) . "\n";
   echo "\t" . $this->Html->meta(['name' => 'twitter:title', 'content' => 'stats.chrisvogt.me']) . "\n";
   echo "\t" . $this->Html->meta(['name' => 'twitter:description', 'content' => $cakeDescription]) . "\n";
@@ -69,35 +69,22 @@ $cakeDescription = __d('cake_dev', 'Recent coding stats for Chris Vogt, front en
 
     $this->Html->script([
         'foundation.min.js',
-        'https://cdn.rawgit.com/chrisvogt/www.chrisvogt.me/dee24618fb7d78a31bee3510ba50c6f9d2fc5e3b/app/scripts/app.js',
-        'https://cdn.rawgit.com/chrisvogt/www.chrisvogt.me/dee24618fb7d78a31bee3510ba50c6f9d2fc5e3b/app/scripts/HttpSocket.js',
-        'https://cdn.rawgit.com/chrisvogt/www.chrisvogt.me/dee24618fb7d78a31bee3510ba50c6f9d2fc5e3b/app/scripts/social.jquery.js'
+        'https://cdn.rawgit.com/chrisvogt/www.chrisvogt.me/master/app/scripts/app.js',
+        'https://cdn.rawgit.com/chrisvogt/www.chrisvogt.me/master/app/scripts/HttpSocket.js',
+        'https://cdn.rawgit.com/chrisvogt/www.chrisvogt.me/master/app/scripts/social.jquery.js'
     ], ['block' => 'scriptBottom']);
 
   	echo $this->fetch('meta');
   	echo $this->fetch('css');
   	echo $this->fetch('script');
     ?>
-    <script type="text/javascript">
-      WebFontConfig = {
-        google: { families: [ 'Quicksand::latin', 'Merriweather:300,300italic:latin' ] }
-      };
-      (function() {
-        var wf = document.createElement('script');
-        wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
-          '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
-        wf.type = 'text/javascript';
-        wf.async = 'true';
-        var s = document.getElementsByTagName('script')[0];
-        s.parentNode.insertBefore(wf, s);
-      })(); </script>
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
 </head>
 <body>
-    <?php echo $this->element('navbar-top'); ?>
+    <?php echo $this->element('navigation/top'); ?>
     <div id="header-chart" class="row fullWidth">
         <div id="chart7Days" class="fullWidth chart"></div>
     </div>
@@ -113,7 +100,7 @@ $cakeDescription = __d('cake_dev', 'Recent coding stats for Chris Vogt, front en
     <section id="promote">
         <div class="row">
             <div class="medium-8 columns">
-                <p>View my code on GitHub to learn more:</p>
+                <p>View my code on GitHub to learn more.</p>
             </div>
             <div class="medium-4 columns">
                 <a href="https://github.com/chrisvogt?tab=contributions&amp;period=monthly" title="Chris Vogt on GitHub" class="button expand hvr-float-shadow"><i class="fa fa-github"></i> <em>chrisvogt</em> on GitHub</a>
@@ -126,7 +113,7 @@ $cakeDescription = __d('cake_dev', 'Recent coding stats for Chris Vogt, front en
         <div class="large-12 columns">
           <nav id="links">
             <ul class="inline-list">
-
+                <!-- AJAX: Social Links -->
             </ul>
           </nav>
         </div>
@@ -135,12 +122,16 @@ $cakeDescription = __d('cake_dev', 'Recent coding stats for Chris Vogt, front en
     <footer>
       <div class="row">
         <div class="small-6 columns">
-          <p><i class="fa fa-code"></i> with <i class="fa fa-heart"></i> by <i class="fa fa-twitter"></i> <a href="https://twitter.com/c1v0" title="@c1v0 on Twitter">@c1v0</a></p>
+            <p>
+                <i class="fa fa-code"></i> with <i class="fa fa-heart"></i> by <i class="fa fa-twitter"></i>
+                <a href="https://twitter.com/c1v0" title="@c1v0 on Twitter">@c1v0</a>
+            </p>
         </div>
         <div class="small-6 columns">
           <ul class="inline-list right">
-            <li><a href="http://stats.chrisvogt.me" title="Chris Vogt's open source stats">Stats</a></li>
-            <li><a href="https://resume.chrisvogt.me" title="Chris Vogt's résumé">Résumé</a></li>
+            <?php foreach ($topNavigation['right'] as $item): ?>
+                <?php echo $this->Element('navigation/item', ['item' => $item]); ?>
+            <?php endforeach; ?>
           </ul>
         </div>
       </div>
@@ -148,21 +139,29 @@ $cakeDescription = __d('cake_dev', 'Recent coding stats for Chris Vogt, front en
     <?php echo $this->fetch('scriptBottom'); ?>
     <?php echo $this->Js->writeBuffer(); ?>
     <script>
+      WebFontConfig = {
+        google: { families: [ 'Quicksand::latin', 'Merriweather:300,300italic:latin' ] }
+      };
+      (function() {
+        var wf = document.createElement('script');
+        wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+          '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+        wf.type = 'text/javascript';
+        wf.async = 'true';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(wf, s);
+      })(); </script>
+    <?php if (env('ANALYTICS_ID')): ?>
+    <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-      ga('create', 'UA-33558417-1', 'auto', {'allowLinker': true});
+      ga('create', <?php echo env('ANALYTICS_ID'); ?>, 'auto', {'allowLinker': true});
       ga('require', 'linker');
       ga('linker:autoLink', ['www.chrisvogt.me'] );
       ga('send', 'pageview');
     </script>
-    <script>
-      $(function() {
-        $(document).foundation();
-        C1V0.social.init();
-      });
-    </script>
+    <?php endif; ?>
 </body>
 </html>
