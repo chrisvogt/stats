@@ -46,6 +46,7 @@ class ReportsController extends AppController
         }, 'resource');
         $data = [
             'title_for_layout' => 'Recent coding stats',
+            'topNavigation' => $this->loadData('top-navigation'),
             'chart' => $this->WakaChart->totalHoursChart($dailySummaries['data']),
             'langChart' => $this->WakaChart->buildLanguageChart(),
             'chartData' => $this->WakaChart->getLanguageData($dailySummaries['data']),

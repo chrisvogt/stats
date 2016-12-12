@@ -12,36 +12,28 @@
         </ul>
         <section class="top-bar-section">
             <ul class="right">
-                <li class="active">
-                    <a href="." title="Coding stats, last 30 days" disabled>
-                        <i class="fa fa-area-chart"></i>
-                        Stats
-                    </a>
+                <?php foreach ($topNavigation['right'] as $item): ?>
+                <li <?php if ($item['text'] === 'Stats'): ?>class="active"<?php endif; ?>>
+                    <?php $linkText = (!empty($item['icon'])) ? '<i class="fa fa-' . $item['icon'] . '" aria-hidden="true"></i>&nbsp;' . $item['text'] : $item['text']; ?>
+                    <?php echo $this->Html->link(
+                        $linkText,
+                        $item['href'],
+                        ['title' => $item['title'], 'escape' => false]
+                    ); ?>
                 </li>
-                <li>
-                    <a href="https://resume.chrisvogt.me" title="Chris Vogt on StackOverflow">
-                        <i class="fa fa-stack-overflow" aria-hidden="true"></i>
-                        Developer Story
-                    </a>
-                </li>
+                <?php endforeach; ?>
             </ul>
             <ul class="left">
+                <?php foreach ($topNavigation['left'] as $item): ?>
                 <li>
-                    <a href="https://www.chrisvogt.me" title="CHRISVOGT.me">
-                        <i class="fa fa-home" aria-hidden="true"></i>
-                        Home
-                    </a>
+                    <?php $linkText = (!empty($item['icon'])) ? '<i class="fa fa-' . $item['icon'] . '" aria-hidden="true"></i>&nbsp;' . $item['text'] : $item['text']; ?>
+                    <?php echo $this->Html->link(
+                        $linkText,
+                        $item['href'],
+                        ['title' => $item['title'], 'escape' => false]
+                    ); ?>
                 </li>
-                <li>
-                    <a href="https://www.chrisvogt.me/#projects" title="My projects">
-                        Projects
-                    </a>
-                </li>
-                <li>
-                    <a href="https://www.chrisvogt.me/#about" title="About me">
-                        About
-                    </a>
-                </li>
+                <?php endforeach; ?>
             </ul>
         </section>
     </nav>

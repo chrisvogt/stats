@@ -22,6 +22,7 @@
  */
 App::uses('Controller', 'Controller');
 App::uses('CrudControllerTrait', 'Crud.Lib');
+App::uses('Component', 'Controller', 'File');
 
 /**
  * Application Controller
@@ -62,4 +63,15 @@ class AppController extends Controller
 	public function beforeFilter() {
 		Parent::beforeFilter();
 	}
+
+    /**
+     * Loads data from the Data directory.
+     * @return array decoded data
+     */
+    protected function loadData($filename) {
+        $file = new File(APP . 'Data/' . $filename . '.json');
+        $data = json_decode($file->read(), true);
+
+        return $data;
+    }
 }

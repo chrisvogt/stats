@@ -1,0 +1,34 @@
+{
+    "left": {
+        "home": {
+            "text": "Home",
+            "icon": "home",
+            "title": "CHRISVOGT.me",
+            "href": "https://www.chrisvogt.me"
+        },
+        "projects": {
+            "text": "Projects",
+            "title": "My projects",
+            "href": "https://www.chrisvogt.me/#projects"
+        },
+        "about": {
+            "text": "About",
+            "title": "About me",
+            "href": "https://www.chrisvogt.me/#about"
+        }
+    },
+    "right": {
+        "stats": {
+            "text": "Stats",
+            "icon": "area-chart",
+            "title": "Coding stats, last 30 days",
+            "href": "."
+        },
+        "story": {
+            "text": "Developer Story",
+            "icon": "stack-overflow",
+            "title": "Chris Vogt on StackOverflow",
+            "href": "https://resume.chrisvogt.me"
+        }
+    }
+}
