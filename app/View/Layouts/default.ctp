@@ -44,7 +44,7 @@ $cakeDescription = __d('cake_dev', 'Recent coding stats for Chris Vogt, front en
   echo "\t" . $this->Html->meta(['property' => 'og:description', 'content' => $cakeDescription]) . "\n";
   echo "\t" . $this->Html->meta(['property' => 'og:author', 'content' => 'Chris Vogt']) . "\n";
   echo "\t" . $this->Html->meta(['name' => 'twitter:card', 'content' => 'summary_large_image']) . "\n";
-  echo "\t" . $this->Html->meta(['name' => 'twitter:site', 'content' => 'http://stats.chrisvogt.me']) . "\n";
+  echo "\t" . $this->Html->meta(['name' => 'twitter:site', 'content' => 'https://stats.chrisvogt.me']) . "\n";
   echo "\t" . $this->Html->meta(['name' => 'twitter:creator', 'content' => '@c1v0']) . "\n";
   echo "\t" . $this->Html->meta(['name' => 'twitter:title', 'content' => 'stats.chrisvogt.me']) . "\n";
   echo "\t" . $this->Html->meta(['name' => 'twitter:description', 'content' => $cakeDescription]) . "\n";
@@ -139,8 +139,8 @@ $cakeDescription = __d('cake_dev', 'Recent coding stats for Chris Vogt, front en
         </div>
         <div class="small-6 columns">
           <ul class="inline-list right">
-            <li><a href="http://stats.chrisvogt.me" title="Chris Vogt's open source stats">Stats</a></li>
-            <li><a href="https://resume.chrisvogt.me" title="Chris Vogt's résumé">Résumé</a></li>
+            <li><a href="." title="Chris Vogt's open source stats">Stats</a></li>
+            <li><a href="https://resume.chrisvogt.me" title="Chris Vogt on StackOverflow"><i class="fa fa-stack-overflow" aria-hidden="true"></i> Developer Story</a></li>
           </ul>
         </div>
       </div>

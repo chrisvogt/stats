@@ -13,7 +13,7 @@
         <section class="top-bar-section">
             <ul class="right">
                 <li class="active">
-                    <a href="http://stats.chrisvogt.me" title="Coding stats, last 30 days" disabled>
+                    <a href="." title="Coding stats, last 30 days" disabled>
                         <i class="fa fa-area-chart"></i>
                         Stats
                     </a>
