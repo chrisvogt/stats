@@ -18,7 +18,8 @@
     ],
     "markup": [
         "HTML",
-        "Markdown"
+        "Markdown",
+        "JSX"
     ],
     "other": [
         "Text",
