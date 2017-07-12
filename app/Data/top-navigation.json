@@ -2,7 +2,6 @@
     "left": {
         "home": {
             "text": "Home",
-            "icon": "home",
             "title": "CHRISVOGT.me",
             "href": "https://www.chrisvogt.me"
         },
@@ -15,12 +14,16 @@
             "text": "About",
             "title": "About me",
             "href": "https://www.chrisvogt.me/#about"
+        },
+        "photos": {
+            "text": "Photos",
+            "title": "Instagram photos",
+            "href": "https://www.instagram.com/c1v0/"
         }
     },
     "right": {
         "stats": {
             "text": "Stats",
-            "icon": "area-chart",
             "title": "Coding stats, last 30 days",
             "href": "."
         },
