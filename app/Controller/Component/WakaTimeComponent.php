@@ -116,10 +116,13 @@ class WakaTimeComponent extends Component
         $query = $this->buildQuery($resource, $params);
         $results = $HttpSocket->get($query);
 
-        if ($results->code == 404) {
-            return $results;
+        if ($results->code == 401) {
+            throw new Exception('Received an UNAUTHORIZED response from WakaTime. Is your API key set and valid?');
+        } elseif ($results->code == 404) {
+            throw new Exception('Received a NOT FOUND response from WakaTime. Is the request endpoint valid?');
+        } elseif ($results->code == 200) {
+            return json_decode($results->body, true);
         }
-        return json_decode($results->body, true);
     }
 
     /**
