@@ -69,9 +69,9 @@ $cakeDescription = __d('cake_dev', 'Recent coding stats for Chris Vogt — Web D
 
     $this->Html->script([
         'foundation.min.js',
-        'https://cdn.rawgit.com/chrisvogt/www/bd44572e4171b93ca6d4063f4ab90d3efc42194f/app/scripts/HttpSocket.js',
-        'https://cdn.rawgit.com/chrisvogt/www/bd44572e4171b93ca6d4063f4ab90d3efc42194f/app/scripts/app.js',
-        'https://cdn.rawgit.com/chrisvogt/www/bd44572e4171b93ca6d4063f4ab90d3efc42194f/app/scripts/social.jquery.js'
+        'https://cdn.rawgit.com/chrisvogt/www/7cc19758b045b891db4526f2e87b52fa7ff09ae3/app/scripts/HttpSocket.js',
+        'https://cdn.rawgit.com/chrisvogt/www/7cc19758b045b891db4526f2e87b52fa7ff09ae3/app/scripts/app.js',
+        'https://cdn.rawgit.com/chrisvogt/www/7cc19758b045b891db4526f2e87b52fa7ff09ae3/app/scripts/social.jquery.js'
     ], ['block' => 'scriptBottom']);
 
   	echo $this->fetch('meta');
